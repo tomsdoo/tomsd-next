@@ -1,10 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import Head from "next/head";
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql, useQuery } from "@apollo/client";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "http://localhost:3000/api/gql"
+    uri: `${process.env.ORIGIN}/api/gql`
   })
 });
 
@@ -22,7 +25,7 @@ const Article = ({ aid }) => {
   const { loading, error, data } = useQuery(QUERY_ARTICLE, {
     variables: { id: aid }
   });
-  if(loading){return <div>loading</div>;}
+  if(loading){console.log(process.env.ORIGIN);return <div>loading</div>;}
   if(error){return <div>error</div>;}
 
   return (
