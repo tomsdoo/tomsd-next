@@ -1,13 +1,10 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import Head from "next/head";
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql, useQuery } from "@apollo/client";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: `${process.env.ORIGIN}/api/gql`
+    uri: [process.env.ORIGIN, "/api/gql"].join("")
   })
 });
 
