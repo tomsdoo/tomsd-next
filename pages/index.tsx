@@ -9,8 +9,8 @@ const client = new ApolloClient({
 });
 
 const QUERY_ARTICLE = gql(`
-  query {
-    article(id: 1) {
+  query article($id: Int!) {
+    article(id: $id) {
       id
       title
       content
@@ -18,8 +18,10 @@ const QUERY_ARTICLE = gql(`
   }
 `);
 
-const Article = () => {
-  const { loading, error, data } = useQuery(QUERY_ARTICLE);
+const Article = ({ aid }) => {
+  const { loading, error, data } = useQuery(QUERY_ARTICLE, {
+    variables: { id: aid }
+  });
   if(loading){return <div>loading</div>;}
   if(error){return <div>error</div>;}
 
@@ -42,7 +44,7 @@ export default function Page(){
       <div>
         {message}
       </div>
-      <Article />
+      <Article aid={2} />
     </ApolloProvider>
   );
 }
