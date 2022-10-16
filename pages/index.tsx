@@ -1,21 +1,6 @@
 import Head from "next/head";
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, gql, useQuery } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: setContext((_, { headers }) => {
-    const requestedWith = "tomsd-client";
-    return {
-      headers: {
-        ...headers,
-        "x-requested-with": requestedWith
-      }
-    };
-  }).concat(new HttpLink({
-    uri: [process.env.ORIGIN, "/api/gql"].join("")
-  }))
-});
+import { gql, useQuery } from "@apollo/client";
+import MyApolloProvider from "../components/providers/apollo";
 
 const QUERY_ARTICLE = gql(`
   query article($id: Int!) {
@@ -46,7 +31,7 @@ const Article = ({ aid }) => {
 export default function Page(){
   const message = "hello world";
   return (
-    <ApolloProvider client={client}>
+    <MyApolloProvider>
       <Head>
         <title>test</title>
       </Head>
@@ -54,6 +39,6 @@ export default function Page(){
         {message}
       </div>
       <Article aid={2} />
-    </ApolloProvider>
+    </MyApolloProvider>
   );
 }
