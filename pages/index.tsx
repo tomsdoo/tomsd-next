@@ -1,4 +1,3 @@
-import Head from "next/head";
 import ApolloProviderForArticles from "../components/providers/apollo";
 import DynamicHead from "../components/heads/head";
 import Article from "../components/articles/article";
