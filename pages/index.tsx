@@ -7,7 +7,10 @@ export default function Page(){
   return (
     <ApolloProviderForArticles>
       <Head>
-        <title>test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charSet="UTF-8" />
+        <meta name="description" content="description" />
+        <title>title</title>
       </Head>
       <div>
         {message}
