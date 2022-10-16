@@ -19,6 +19,11 @@ export default cors(async (req, res) => {
     res.end();
     return false;
   }
+  if(req.headers?.["x-requested-with"] !== "tomsd-client"){
+    res.statusCode = 400;
+    res.end();
+    return false;
+  }
   await startServer;
   await apolloServer.createHandler({ path: "/api/gql" })(req, res);
 });
