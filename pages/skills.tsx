@@ -8,7 +8,7 @@ export default function Page(){
       <DynamicHead />
       <Layout>
         <article className={pageStyles.article}>
-          content
+          skills
         </article>
       </Layout>
     </>
