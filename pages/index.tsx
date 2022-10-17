@@ -1,6 +1,6 @@
-import ApolloProviderForArticles from "../components/providers/apollo";
-import DynamicHead from "../components/heads/head";
-import Article from "../components/articles/article";
+import ApolloProviderForArticles from "@/components/providers/apollo";
+import DynamicHead from "@/components/heads/head";
+import Article from "@/components/articles/article";
 
 export default function Page(){
   const message = "hello world";
@@ -10,7 +10,7 @@ export default function Page(){
       <div>
         {message}
       </div>
-      <Article articleId={1} />
+      <Article articleId={2} />
     </ApolloProviderForArticles>
   );
 }
