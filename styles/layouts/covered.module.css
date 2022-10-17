@@ -1,0 +1,38 @@
+.cover {
+  position: relative;
+  height: 100vh;
+  background: url(https://picsum.photos/1920/1080);
+  background-size: cover;
+}
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(150%) blur(5px);
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "header" max-content
+    "main" 1fr;
+  grid-gap: 1rem;
+}
+
+.header {
+  grid-area: header;
+  color: red;
+}
+
+.main {
+  grid-area: main;
+  padding: 2rem;
+}
