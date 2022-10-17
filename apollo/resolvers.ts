@@ -1,4 +1,5 @@
 import { Config } from "apollo-server-micro";
+import { createClient } from "contentful";
 
 const db = {
   articles: [
@@ -14,6 +15,14 @@ const db = {
 export const resolvers: Config["resolvers"] = {
   Query: {
     article: (_, { id }: { id: number }) => db.articles.find((a) => a.id === id),
-    articles: () => db.articles
+    articles: () => db.articles,
+    profile: async () => await createClient({
+      space: process.env.CONTENTFUL_SPACE_ID,
+      environment: "master",
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    }).getEntries({
+      content_type: "anydoc",
+      "fields.name": "tomsd-page-profile"
+    }).then(({ items }) => items?.[0].fields.json)
   }
 }
