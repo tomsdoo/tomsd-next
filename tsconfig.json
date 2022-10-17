@@ -22,7 +22,8 @@
     "paths": {
       "@/apollo/*": ["apollo/*"],
       "@/components/*": ["components/*"],
-      "@/modules/*": ["modules/*"]
+      "@/modules/*": ["modules/*"],
+      "@/styles/*": ["styles/*"]
     }
   },
   "include": [
