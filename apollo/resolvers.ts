@@ -23,6 +23,7 @@ export const resolvers: Config["resolvers"] = {
     }).getEntries({
       content_type: "anydoc",
       "fields.name": "tomsd-page-profile"
-    }).then(({ items }) => items?.[0].fields.json)
+      // @ts-ignore
+    }).then(({ items }) => items?.[0]?.fields?.json)
   }
 }
