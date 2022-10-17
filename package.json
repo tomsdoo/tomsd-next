@@ -22,6 +22,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "apollo-server-micro": "^3.10.3",
+    "contentful": "^9.2.5",
     "destyle.css": "^3.0.2",
     "graphql": "^16.6.0",
     "micro": "^9.4.1",

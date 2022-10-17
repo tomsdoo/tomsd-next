@@ -7,8 +7,32 @@ export const typeDefs: Config["typeDefs"] = gql(`
     content: String
   }
 
+  type Certificate {
+    title: String
+    when: String
+  }
+
+  type TechLink {
+    name: String
+    image: String
+    url: String
+    shortName: String
+  }
+
+  type Profile {
+    name: String
+    photo: String
+    title: String
+    description: String
+    location: String
+    certificates: [Certificate]
+    favorites: [String]
+    links: [TechLink]
+  }
+
   type Query {
     article(id: Int): Article
     articles: [Article]
+    profile: Profile
   }
 `);
