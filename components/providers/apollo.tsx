@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { ApolloProvider } from "@apollo/client";
-import { client } from "../../modules/apolloClient";
+import { client } from "@/modules/apolloClient";
 
 type Props = {
   children: ReactNode
