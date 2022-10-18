@@ -1,0 +1,3 @@
+.frosted {
+  backdrop-filter: brightness(300%) blur(10px);
+}
