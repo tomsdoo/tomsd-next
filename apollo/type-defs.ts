@@ -30,9 +30,17 @@ export const typeDefs: Config["typeDefs"] = gql(`
     links: [TechLink]
   }
 
+  type Skill {
+    title: String
+    years: Int
+    description: String
+    web: Boolean
+  }
+
   type Query {
     article(id: Int): Article
     articles: [Article]
     profile: Profile
+    skills: [Skill]
   }
 `);
