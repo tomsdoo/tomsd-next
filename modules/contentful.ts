@@ -22,3 +22,12 @@ export class Profile extends ContentfulClient {
     }).then(({ items }) => items?.[0]?.fields?.json);
   }
 }
+
+export class Skills extends ContentfulClient {
+  public async get(){
+    return await this.getEntries<{ title: string; years: number; description: string; web: boolean; }>({
+      content_type: "skills",
+      limit: 1000
+    }).then(({ items }) => items.map(({ fields }) => fields));
+  }
+}
