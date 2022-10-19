@@ -22,9 +22,9 @@
   height: 100vh;
   display: grid;
   grid-template:
-    "header" max-content
-    "main" 1fr;
-  grid-gap: 1rem;
+    "header" var(--header-height)
+    "main" var(--main-height);
+  grid-gap: var(--overall-gap);
 }
 
 .header {
