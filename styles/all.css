@@ -1,5 +1,11 @@
+@import url(https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300&display=swap);
+
 :root {
   --header-height: 3rem;
   --main-height: calc(100vh - var(--header-height));
   --overall-gap: 0;
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
