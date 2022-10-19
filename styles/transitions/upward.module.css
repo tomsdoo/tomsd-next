@@ -1,0 +1,7 @@
+.appear {
+  transform: translateY(20px);
+}
+.appearActive {
+  transition: all 100ms ease;
+  transform: translateY(0);
+}
