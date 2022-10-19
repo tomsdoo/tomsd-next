@@ -8,7 +8,7 @@ export default function Page(){
   return (
     <ApolloProvider>
       <DynamicHead />
-      <Layout>
+      <Layout loaded={true}>
         <article className={`${pageStyles.article}`}>
           <Skills />
         </article>
