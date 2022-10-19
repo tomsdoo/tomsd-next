@@ -10,7 +10,7 @@ export default function Page(){
   return (
     <ApolloProvider>
       <DynamicHead />
-      <Layout>
+      <Layout loaded={true}>
         <article className={`${pageStyles.article} ${frostedStyles.frosted} ${shadowStyles.shadow_2_8_787878}`}>
           <Profile />
         </article>
