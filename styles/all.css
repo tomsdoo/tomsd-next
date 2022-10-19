@@ -1,0 +1,5 @@
+:root {
+  --header-height: 3rem;
+  --main-height: calc(100vh - var(--header-height));
+  --overall-gap: 0;
+}
