@@ -1,0 +1,27 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-gap: 3rem;
+}
+
+.item {
+  display: grid;
+  padding: 1rem;
+  grid-template:
+    "title years" max-content
+    "description description" max-content / 1fr max-content;
+  grid-gap: 1rem;
+  border-radius: 10px;
+}
+
+.skillTitle {
+  grid-area: title;
+}
+
+.skillYears {
+  grid-area: years;
+}
+
+.skillDescription {
+  grid-area: description;
+}
