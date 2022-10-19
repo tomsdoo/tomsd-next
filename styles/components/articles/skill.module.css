@@ -1,0 +1,22 @@
+.item {
+  display: grid;
+  height: 100%;
+  padding: 1rem;
+  grid-template:
+    "title years" max-content
+    "description description" max-content / 1fr max-content;
+  grid-gap: 1rem;
+  border-radius: 10px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.years {
+  grid-area: years;
+}
+
+.description {
+  grid-area: description;
+}
