@@ -31,3 +31,12 @@ export class Skills extends ContentfulClient {
     }).then(({ items }) => items.map(({ fields }) => fields));
   }
 }
+
+export class Histories extends ContentfulClient {
+  public async get(){
+    return await this.getEntries<{ title: string; start: string; end: string; companyDescription: string; description: string; badges: string[] }>({
+      content_type: "history",
+      limit: 1000
+    }).then(({ items }) => items.map(({ fields }) => fields));
+  }
+}

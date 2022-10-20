@@ -1,6 +1,5 @@
 import { Config } from "apollo-server-micro";
-import { Profile, Skills } from "@/modules/contentful";
-// import { createClient } from "contentful";
+import { Histories, Profile, Skills } from "@/modules/contentful";
 
 const db = {
   articles: [
@@ -18,6 +17,7 @@ export const resolvers: Config["resolvers"] = {
     article: (_, { id }: { id: number }) => db.articles.find((a) => a.id === id),
     articles: () => db.articles,
     profile: async () => await new Profile().get(),
-    skills: async () => await new Skills().get()
+    skills: async () => await new Skills().get(),
+    histories: async () => await new Histories().get()
   }
 }

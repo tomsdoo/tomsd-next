@@ -1,0 +1,60 @@
+.list {
+  display: grid;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  grid-template:
+    "term" max-content
+    "company" max-content
+    "title" max-content
+    "badges" max-content
+    "description" max-content / 1fr;
+  border-left: 1px solid;
+  padding: 0 0 1rem 1rem;
+}
+
+.item:last-child {
+  border-left: none;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background: #777;
+  top: 0;
+  left: 0;
+  width: 1.3em;
+  height: 1.3em;
+  transform: translate(calc(-50% - 1px), 0);
+  z-index: 1;
+  border-radius: 50%;
+
+}
+
+
+.term {
+  grid-area: term;
+}
+
+.company {
+  grid-area: company;
+}
+
+.title {
+  grid-area: title;
+}
+
+.badges {
+  grid-area: badges;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.description {
+  grid-area: description;
+}
