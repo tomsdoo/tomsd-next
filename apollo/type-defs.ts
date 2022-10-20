@@ -37,10 +37,20 @@ export const typeDefs: Config["typeDefs"] = gql(`
     web: Boolean
   }
 
+  type History {
+    title: String
+    start: String
+    end: String
+    companyDescription: String
+    description: String
+    badges: [String]
+  }
+
   type Query {
     article(id: Int): Article
     articles: [Article]
     profile: Profile
     skills: [Skill]
+    histories: [History]
   }
 `);
