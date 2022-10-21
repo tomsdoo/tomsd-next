@@ -9,3 +9,11 @@
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
