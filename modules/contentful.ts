@@ -40,3 +40,12 @@ export class Histories extends ContentfulClient {
     }).then(({ items }) => items.map(({ fields }) => fields));
   }
 }
+
+export class Artifacts extends ContentfulClient {
+  public async get(){
+    return await this.getEntries<{ title: string; link: string; description: string; image: string; orderScore: number; }>({
+      content_type: "artifact",
+      limit: 1000
+    }).then(({ items }) => items.map(({ fields }) => fields));
+  }
+}
