@@ -24,14 +24,16 @@ export default function Layout({ children, loaded, ...props }: Props){
       <div className={styles.cover}></div>
       <div className={styles.screen}>
         <header className={styles.header}>
-          <div className={styles.logo}>
-            <Link href="/">
-              <a className={styles.link}>tomsd</a>
-            </Link>
+          <div className={styles.innerHeader}>
+            <div className={styles.logo}>
+              <Link href="/">
+                <a className={styles.link}>tomsd</a>
+              </Link>
+            </div>
+            <ul className={styles.links}>
+              {links.map(link => <Link href={link.href}><a className={styles.link}>{link.title}</a></Link>)}
+            </ul>
           </div>
-          <ul className={styles.links}>
-            {links.map(link => <Link href={link.href}><a className={styles.link}>{link.title}</a></Link>)}
-          </ul>
         </header>
         <CSSTransition nodeRef={nodeRef} in={loaded} appear={loaded} timeout={100} classNames={{...upwardStyles}}>
           <main className={styles.main} ref={nodeRef}>

@@ -29,10 +29,14 @@
 
 .header {
   grid-area: header;
+}
+
+.innerHeader {
   display: grid;
   grid-template:
     "logo links" max-content / 1fr max-content;
   color: red;
+  padding: 0 2rem;
 }
 
 .logo {
