@@ -30,18 +30,7 @@ export default function Layout({ children, loaded, ...props }: Props){
             </Link>
           </div>
           <ul className={styles.links}>
-            <Link href={links[0].href}>
-              <a className={styles.link}>{links[0].title}</a>
-            </Link>
-            <Link href="/skills">
-              <a className={styles.link}>skills</a>
-            </Link>
-            <Link href="/history">
-              <a className={styles.link}>history</a>
-            </Link>
-            <Link href="/links">
-              <a className={styles.link}>links</a>
-            </Link>
+            {links.map(link => <Link href={link.href}><a className={styles.link}>{link.title}</a></Link>)}
           </ul>
         </header>
         <CSSTransition nodeRef={nodeRef} in={loaded} appear={loaded} timeout={100} classNames={{...upwardStyles}}>
