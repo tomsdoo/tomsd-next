@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import Link from "next/link";
 import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
+import frostedStyles from "@/styles/named/frosted.module.css";
 
 type Props = {
   children: ReactNode;
@@ -23,7 +24,7 @@ export default function Layout({ children, loaded, ...props }: Props){
     <div {...props}>
       <div className={styles.cover}></div>
       <div className={styles.screen}>
-        <header className={styles.header}>
+        <header className={`${styles.header} ${frostedStyles.frostedALittle}`}>
           <div className={styles.innerHeader}>
             <div className={styles.logo}>
               <Link href="/">
