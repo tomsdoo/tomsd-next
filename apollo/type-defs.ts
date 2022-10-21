@@ -46,11 +46,20 @@ export const typeDefs: Config["typeDefs"] = gql(`
     badges: [String]
   }
 
+  type Artifact {
+    title: String
+    link: String
+    description: String
+    image: String
+    orderScore: Int
+  }
+
   type Query {
     article(id: Int): Article
     articles: [Article]
     profile: Profile
     skills: [Skill]
     histories: [History]
+    artifacts: [Artifact]
   }
 `);
