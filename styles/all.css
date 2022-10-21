@@ -4,10 +4,13 @@
   --header-height: 3rem;
   --main-height: calc(100vh - var(--header-height));
   --overall-gap: 0;
+
+  --default-color: #232323;
 }
 
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: var(--default-color);
 }
 
 * {
