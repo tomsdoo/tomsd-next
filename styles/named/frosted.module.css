@@ -2,7 +2,14 @@
   position: relative;
   backdrop-filter: brightness(300%) blur(10px);
 }
-.frosted::before {
+
+.frostedALittle {
+  position: relative;
+  backdrop-filter: brightness(110%) blur(10px);
+}
+
+.frosted::before,
+.frostedALittle::before {
   content: "";
   position: absolute;
   z-index: -1;
