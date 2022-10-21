@@ -3,20 +3,27 @@
   height: 100%;
   padding: 1rem;
   grid-template:
-    "title years" max-content
-    "description description" max-content / 1fr max-content;
-  grid-gap: 1rem;
+    "title" max-content
+    "years" max-content
+    "description" max-content / 1fr;
+  grid-gap: 0.5em;
   border-radius: 10px;
 }
 
 .title {
   grid-area: title;
+  font-size: 1.2em;
+  border-bottom: 1px solid;
 }
 
 .years {
   grid-area: years;
+  font-size: 0.9em;
+  text-align: right;
 }
 
 .description {
   grid-area: description;
+  margin-top: 1em;
+  font-size: 0.8em;
 }
