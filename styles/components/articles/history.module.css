@@ -1,3 +1,9 @@
+.area {
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
 .list {
   display: grid;
 }
@@ -7,12 +13,12 @@
   display: grid;
   grid-template:
     "term" max-content
-    "company" max-content
-    "title" max-content
+    "company-and-title" max-content
     "badges" max-content
     "description" max-content / 1fr;
   border-left: 1px solid;
   padding: 0 0 1rem 1rem;
+  grid-gap: 0.5rem;
 }
 
 .item:last-child {
@@ -38,13 +44,27 @@
 .term {
   grid-area: term;
 }
+.term .span {
+  font-size: 1.2em;
+}
+
+.companyAndTitle {
+  grid-area: company-and-title;
+  display: grid;
+  grid-template:
+    "company" max-content
+    "title" max-content / 1fr;
+  grid-gap: 0.1rem;
+}
 
 .company {
   grid-area: company;
+  font-size: 0.9em;
 }
 
 .title {
   grid-area: title;
+  font-size: 1.1em;
 }
 
 .badges {
@@ -53,8 +73,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 0.5em;
+  font-size: 0.8em;
 }
 
 .description {
   grid-area: description;
+  font-size: 0.9em;
 }

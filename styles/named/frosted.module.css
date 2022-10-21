@@ -1,4 +1,5 @@
 .frosted {
+  position: relative;
   backdrop-filter: brightness(300%) blur(10px);
 }
 .frosted::before {
