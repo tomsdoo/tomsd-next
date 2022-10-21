@@ -1,0 +1,27 @@
+.link {
+  display: grid;
+  grid-template:
+    "image" max-content
+    "title" max-content
+    "description" max-content / 1fr;
+  grid-gap: 0.5rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.title {
+  grid-area: title;
+  font-size: 1.2em;
+}
+
+.description {
+  grid-area: description;
+  font-size: 0.9em;
+}
+
+.image {
+  grid-area: image;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
