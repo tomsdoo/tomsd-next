@@ -29,7 +29,32 @@
 
 .header {
   grid-area: header;
+  display: grid;
+  grid-template:
+    "logo links" max-content / 1fr max-content;
   color: red;
+}
+
+.logo {
+  grid-area: logo;
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-gap: 0.5rem;
+}
+
+.link {
+  padding: 0.5em;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .main {
