@@ -1,0 +1,80 @@
+.profile {
+  display: grid;
+  grid-template:
+    "title" max-content
+    "name" max-content
+    "description" max-content
+    "location" max-content
+    "certificates" max-content
+    "favorites" max-content
+    "links" max-content
+    ".." 1fr / 1fr;
+  grid-gap: 1rem;
+}
+
+.title {
+  grid-area: title;
+  font-size: 2rem;
+}
+
+.name {
+  grid-area: name;
+  font-size: 3rem;
+}
+
+.description {
+  grid-area: description;
+  font-size: 1.5rem;
+}
+
+.location {
+  grid-area: location;
+}
+
+.certificates {
+  grid-area: certificates;
+}
+
+.favorites {
+  grid-area: favorites;
+}
+
+.links {
+  grid-area: links;
+  font-size: 0.8em;
+}
+
+.link {
+  display: grid;
+  grid-template:
+    "image url" max-content / max-content 1fr;
+  grid-gap: 0.5em;
+  width: max-content;
+  align-items: center;
+}
+
+.image {
+  grid-area: image;
+  width: 1em;
+  height: 1em;
+}
+
+.url {
+  grid-area: url;
+}
+
+.iconAndContent {
+  display: grid;
+  grid-template:
+    "icon content" max-content / max-content 1fr;
+  grid-gap: 1rem;
+}
+
+.icon {
+  grid-area: icon;
+  font-size: 1rem;
+}
+
+.content {
+  grid-area: content;
+}
