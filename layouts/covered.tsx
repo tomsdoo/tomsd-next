@@ -1,5 +1,6 @@
 import { ReactNode, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
@@ -12,6 +13,7 @@ type Props = {
 
 export default function Layout({ children, loaded, ...props }: Props){
   const nodeRef = useRef(null);
+  const router = useRouter();
 
   const links = [
     { href: "/profile", title: "profile" },
@@ -32,7 +34,7 @@ export default function Layout({ children, loaded, ...props }: Props){
               </Link>
             </div>
             <ul className={styles.links}>
-              {links.map(link => <Link href={link.href}><a className={styles.link}>{link.title}</a></Link>)}
+              {links.map(link => <Link href={link.href}><a className={`${styles.link} ${router.pathname.startsWith(link.href) ? styles.active : ""}`}>{link.title}</a></Link>)}
             </ul>
           </div>
         </header>

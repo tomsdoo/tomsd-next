@@ -60,6 +60,10 @@
   align-items: center;
   text-shadow: 0 0 10px #ffffff, 0 0 12px var(--default-color);
 }
+.link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
 .link:hover {
   text-shadow: 0 0 1px var(--default-color), 0 0 10px #ffffff, 0 0 12px var(--default-color);
 }
