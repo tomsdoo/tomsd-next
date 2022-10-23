@@ -34,7 +34,7 @@ export default function Layout({ children, loaded, ...props }: Props){
               </Link>
             </div>
             <ul className={styles.links}>
-              {links.map(link => <Link href={link.href}><a className={`${styles.link} ${router.pathname.startsWith(link.href) ? styles.active : ""}`}>{link.title}</a></Link>)}
+              {links.map((link, index) => <Link key={index} href={link.href}><a className={`${styles.link} ${router.pathname.startsWith(link.href) ? styles.active : ""}`}>{link.title}</a></Link>)}
             </ul>
           </div>
         </header>
