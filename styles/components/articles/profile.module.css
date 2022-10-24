@@ -60,6 +60,14 @@
   font-size: 0.8em;
 }
 
+.linkList {
+  display: grid;
+}
+
+.linkListItem {
+  width: max-content;
+}
+
 .link {
   display: grid;
   grid-template:
@@ -79,6 +87,11 @@
   grid-area: url;
 }
 
+.linkShortName {
+  grid-area: short-name;
+  display: none;
+}
+
 .iconAndContent {
   display: grid;
   grid-template:
@@ -93,4 +106,29 @@
 
 .content {
   grid-area: content;
+}
+
+@media screen and (max-width: 600px) {
+  .linkList {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+  .link {
+    grid-template:
+      "image" max-content
+      "short-name" max-content / 1fr;
+    box-shadow: inset 0 0 3px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .image {
+    width: 5rem;
+    height: 5rem;
+  }
+  .url {
+    display: none;
+  }
+  .linkShortName {
+    display: block;
+    text-align: center;
+  }
 }

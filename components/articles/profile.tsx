@@ -55,8 +55,19 @@ export default function Profile(){
       </div>
       <div className={`${styles.links} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>link</span>
-        <ul>
-          {data.profile.links.map(link => <li><a className={styles.link} href={link.url} target="_blank"><img className={styles.image} src={link.image} /><span className={styles.url}>{link.url}</span></a></li>)}
+        <ul className={styles.linkList}>
+          {
+            data.profile.links.map(
+              link =>
+                <li className={styles.linkListItem}>
+                  <a className={styles.link} href={link.url} target="_blank">
+                    <img className={styles.image} src={link.image} />
+                    <span className={styles.url}>{link.url}</span>
+                    <span className={styles.linkShortName}>{link.shortName}</span>
+                  </a>
+                </li>
+            )
+          }
         </ul>
       </div>
     </div>
