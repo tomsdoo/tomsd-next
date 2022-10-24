@@ -17,9 +17,25 @@
   font-size: 2rem;
 }
 
+.nameArea {
+  grid-area: name;
+  display: grid;
+  grid-template:
+    "photo name" max-content / max-content 1fr;
+  grid-gap: 0.5em;
+  font-size: 3rem;
+  align-items: center;
+}
+
 .name {
   grid-area: name;
-  font-size: 3rem;
+}
+
+.photo {
+  grid-area: photo;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
 }
 
 .description {
