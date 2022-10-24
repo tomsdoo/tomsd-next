@@ -39,7 +39,7 @@ function formatYM(date?: string){
 function Badges({ badges, ...props }){
   return (
     <ul {...props}>
-      {badges.map(badge => <li>{`#${badge}`}</li>)}
+      {badges.map((badge, index) => <li key={index}>{`#${badge}`}</li>)}
     </ul>
   );
 }
@@ -66,7 +66,7 @@ export default function History(){
   return (
     <div className={historyStyles.area}>
       <ol className={historyStyles.list}>
-        {data.histories.map(history => <li className={historyStyles.item}><HistoryItem history={history} /></li>)}
+        {data.histories.map((history, index) => <li key={index} className={historyStyles.item}><HistoryItem history={history} /></li>)}
       </ol>
     </div>
   );
