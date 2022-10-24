@@ -31,7 +31,10 @@ export default function Profile(){
 
   return (
     <div className={styles.profile}>
-      <div className={styles.name}>{data.profile.name}</div>
+      <div className={styles.nameArea}>
+        <img className={styles.photo} src={data.profile.photo} />
+        <div className={styles.name}>{data.profile.name}</div>
+      </div>
       <div className={styles.title}>{data.profile.title}</div>
       <div className={styles.description}>{data.profile.description}</div>
       <div className={`${styles.location} ${styles.iconAndContent}`}>
