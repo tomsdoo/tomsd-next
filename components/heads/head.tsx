@@ -8,7 +8,7 @@ export default function DynamicHead(){
     {
       pathRegexp: /^\/profile\/?/,
       title: `profile | ${siteName}`,
-      description: "tomsd designs and developments Web and the operations."
+      description: "tomsd designs and develops Web and the operations."
     },
     {
       pathRegexp: /^\/skills\/?/,
