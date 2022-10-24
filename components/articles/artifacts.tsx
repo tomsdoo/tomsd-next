@@ -23,7 +23,7 @@ export default function Artifacts(){
 
   return (
     <ul className={artifactsStyles.list}>
-      {artifacts.map(artifact => <Artifact artifact={artifact} />)}
+      {artifacts.map((artifact, index) => <Artifact key={index} artifact={artifact} />)}
     </ul>
   );
 }
