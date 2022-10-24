@@ -21,3 +21,9 @@ body {
 *::-webkit-scrollbar {
   display: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --default-color: #eaeaea;
+  }
+}
