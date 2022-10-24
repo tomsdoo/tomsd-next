@@ -27,7 +27,7 @@ export default function DynamicHead(){
     },
     {
       pathRegexp: /.*/,
-      title: "tomsd",
+      title: siteName,
       description: "tomsd's web site."
     }
   ];
