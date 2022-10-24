@@ -7,23 +7,28 @@ export default function DynamicHead(){
   const headCandidates = [
     {
       pathRegexp: /^\/profile\/?/,
-      title: `profile | ${siteName}`
+      title: `profile | ${siteName}`,
+      description: "tomsd designs and develops Web and the operations."
     },
     {
       pathRegexp: /^\/skills\/?/,
-      title: `skills | ${siteName}`
+      title: `skills | ${siteName}`,
+      description: "tomsd has the experiences of the Web and the system development."
     },
     {
       pathRegexp: /^\/history\/?/,
-      title: `history | ${siteName}`
+      title: `history | ${siteName}`,
+      description: "History of tomsd will tell you what he has deed."
     },
     {
       pathRegexp: /^\/links\/?/,
-      title: `links | ${siteName}`
+      title: `links | ${siteName}`,
+      description: "Links about tomsd indicate that his artifacts are there."
     },
     {
       pathRegexp: /.*/,
-      title: "tomsd"
+      title: siteName,
+      description: "tomsd's web site."
     }
   ];
 
@@ -34,7 +39,7 @@ export default function DynamicHead(){
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta charSet="UTF-8" />
-      <meta name="description" content="description" />
+      <meta name="description" content={displayingHead.description} />
       <title>{displayingHead.title}</title>
     </Head>
   );
