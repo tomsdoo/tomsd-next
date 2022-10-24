@@ -132,3 +132,9 @@
     text-align: center;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .image {
+    filter: invert(0.7);
+  }
+}

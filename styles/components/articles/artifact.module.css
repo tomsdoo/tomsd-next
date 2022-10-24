@@ -25,3 +25,9 @@
   aspect-ratio: 16 / 9;
   width: 100%;
 }
+
+@media (prefers-color-scheme: dark) {
+  .image {
+    filter: invert(0.2);
+  }
+}

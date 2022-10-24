@@ -20,3 +20,18 @@
   border-radius: inherit;
   background: rgba(255, 255, 255, 0.3);
 }
+
+@media (prefers-color-scheme: dark) {
+  .frosted {
+    backdrop-filter: brightness(50%) blur(10px);
+  }
+
+  .frostedALittle {
+    backdrop-filter: brightness(90%) blur(10px);
+  }
+
+  .frosted::before,
+  .frostedALittle::before {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
