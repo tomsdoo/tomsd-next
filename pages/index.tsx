@@ -1,8 +1,9 @@
+import Link from "next/link";
 import DynamicHead from "@/components/heads/head";
+import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 
 export default function Page(){
-  const message = "hello world";
   return (
     <>
       <DynamicHead />
@@ -17,7 +18,9 @@ export default function Page(){
           }
         </ul>
         <div className={styles.form}>
-          {message}
+          <ul>
+            {routes.map((route, index) => <li key={index}><Link href={route.href}><a>{route.headerLink.title}</a></Link></li>)}
+          </ul>
         </div>
       </div>
     </>

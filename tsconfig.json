@@ -25,6 +25,7 @@
       "@/components/*": ["components/*"],
       "@/layouts/*": ["layouts/*"],
       "@/modules/*": ["modules/*"],
+      "@/routes/*": ["routes/*"],
       "@/styles/*": ["styles/*"]
     }
   },
