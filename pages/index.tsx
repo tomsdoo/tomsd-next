@@ -18,8 +18,8 @@ export default function Page(){
           }
         </ul>
         <div className={styles.form}>
-          <ul>
-            {routes.map((route, index) => <li key={index}><Link href={route.href}><a>{route.headerLink.title}</a></Link></li>)}
+          <ul className={styles.menuList}>
+            {routes.map((route, index) => <li key={index} className={styles.menuItem}><Link href={route.href}><a className={styles.menuLink}>{route.headerLink.title}</a></Link></li>)}
           </ul>
         </div>
       </div>
