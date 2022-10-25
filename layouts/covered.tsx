@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
 import frostedStyles from "@/styles/named/frosted.module.css";
+import { routes } from "@/routes/index";
 
 type Props = {
   children: ReactNode;
@@ -14,13 +15,6 @@ type Props = {
 export default function Layout({ children, loaded, ...props }: Props){
   const nodeRef = useRef(null);
   const router = useRouter();
-
-  const links = [
-    { href: "/profile", title: "profile" },
-    { href: "/skills", title: "skills" },
-    { href: "/history", title: "history" },
-    { href: "/links", title: "links" }
-  ];
 
   return (
     <div {...props}>
@@ -34,7 +28,13 @@ export default function Layout({ children, loaded, ...props }: Props){
               </Link>
             </div>
             <ul className={styles.links}>
-              {links.map((link, index) => <Link key={index} href={link.href}><a className={`${styles.link} ${router.pathname.startsWith(link.href) ? styles.active : ""}`}>{link.title}</a></Link>)}
+              {
+                routes.map((route, index) =>
+                  <Link key={index} href={route.href}>
+                    <a className={`${styles.link} ${router.pathname.startsWith(route.href) ? styles.active : ""}`}>{route.headerLink.title}</a>
+                  </Link>
+                )
+              }
             </ul>
           </div>
         </header>
