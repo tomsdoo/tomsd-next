@@ -1,16 +1,25 @@
-import ApolloProviderForArticles from "@/components/providers/apollo";
 import DynamicHead from "@/components/heads/head";
-import Article from "@/components/articles/article";
+import styles from "@/styles/pages/index.module.css";
 
 export default function Page(){
   const message = "hello world";
   return (
-    <ApolloProviderForArticles>
+    <>
       <DynamicHead />
-      <div>
-        {message}
+      <div className={styles.screen}>
+        <ul className={styles.photoList}>
+          {
+            [...Array(20).keys()].map(i =>
+              <li key={i}>
+                <img style={{ animationDelay: `${i * 50}ms` }} className={styles.photo} src={`https://picsum.photos/${50+i}`} />
+              </li>
+            )
+          }
+        </ul>
+        <div className={styles.form}>
+          {message}
+        </div>
       </div>
-      <Article articleId={2} />
-    </ApolloProviderForArticles>
+    </>
   );
 }
