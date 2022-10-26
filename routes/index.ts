@@ -3,7 +3,7 @@ const siteName = "tomsd";
 export const routes = [
   {
     href: "/profile",
-    pathRegexp: /^\/profile\/?/,
+    pathRegexp: /^\/profile\/?$/,
     headerLink: {
       title: "profile"
     },
@@ -14,7 +14,7 @@ export const routes = [
   },
   {
     href: "/skills",
-    pathRegexp: /^\/skills\/?/,
+    pathRegexp: /^\/skills\/?$/,
     headerLink: {
       title: "skills"
     },
@@ -25,7 +25,7 @@ export const routes = [
   },
   {
       href: "/history",
-      pathRegexp: /^\/history\/?/,
+      pathRegexp: /^\/history\/?$/,
       headerLink: {
         title: "history"
       },
@@ -36,7 +36,7 @@ export const routes = [
   },
   {
     href: "/links",
-    pathRegexp: /^\/links\/?/,
+    pathRegexp: /^\/links\/?$/,
     headerLink: {
       title: "links"
     },
