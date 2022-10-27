@@ -13,18 +13,22 @@ const QUERY_SKILLS = gql(`
   }
   `);
 
-export default function Skills(){
+export default function Skills() {
   const { loading, error, data } = useQuery(QUERY_SKILLS);
-  if(loading){return <div>loading</div>;}
-  if(error){return <div>error</div>;}
+  if (loading) {
+    return <div>loading</div>;
+  }
+  if (error) {
+    return <div>error</div>;
+  }
 
   return (
     <ul className={skillsStyles.list}>
-      {data.skills.map((skill) =>
+      {data.skills.map((skill) => (
         <li key={skill.title}>
           <Skill skill={skill} />
         </li>
-      )}
+      ))}
     </ul>
   );
 }
