@@ -13,6 +13,7 @@
     "format:pages": "prettier --write pages/**/*.tsx",
     "format:api": "prettier --write pages/api/**/*.ts",
     "format:routes": "prettier --write routes/**/*.ts",
+    "format:styles": "prettier --write styles/**/*.css",
     "format:test": "prettier --write __test__/**/*.ts",
     "test": "jest"
   },
