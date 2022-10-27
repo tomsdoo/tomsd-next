@@ -7,19 +7,19 @@ const cors = Cors();
 
 export const config = {
   api: {
-    bodyParser: false
-  }
+    bodyParser: false,
+  },
 };
 
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
 const startServer = apolloServer.start();
 
 export default cors(async (req, res) => {
-  if(req.method === "OPTIONS"){
+  if (req.method === "OPTIONS") {
     res.end();
     return false;
   }
-  if(req.headers?.["x-requested-with"] !== "tomsd-client"){
+  if (req.headers?.["x-requested-with"] !== "tomsd-client") {
     res.statusCode = 400;
     res.end();
     return false;
