@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, jest } from "@jest/globals";
-import { ContentfulClient, Profile, Skills } from "@/modules/contentful";
+import { ContentfulClient, Histories, Profile, Skills } from "@/modules/contentful";
 
 describe("contentful", () => {
   describe("ContentfulClient", () => {
@@ -68,6 +68,48 @@ describe("contentful", () => {
       expect(await new Skills().get()).toEqual(mockedSkills.map(({ fields }) => fields));
       expect(spy).toHaveBeenCalledWith({
         content_type: "skills",
+        limit: 1000
+      });
+    });
+  });
+
+  describe("Histories", () => {
+    beforeAll(() => {
+      process.env.CONTENTFUL_SPACE_ID = "space";
+      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
+    });
+    it("get()", async () => {
+      const mockedHistories = [
+        {
+          fields: {
+            title: "history 1",
+            start: "2000-01-01T00:00:00Z",
+            end: "2000-01-02T00:00:00Z",
+            companyDescription: "comapny description 1",
+            description: "description 1",
+            badges: [ "history 1- badge 1", "history 1 - badge 2"]
+          }
+        },
+        {
+          fields: {
+            title: "history 2",
+            start: "2000-02-01T00:00:00Z",
+            end: "2000-02-02T00:00:00Z",
+            companyDescription: "comapny description 2",
+            description: "description 2",
+            badges: [ "history 2- badge 1", "history 2 - badge 2"]
+          }
+        },
+      ];
+      const spy = jest
+        .spyOn(ContentfulClient.prototype, "getEntries")
+        // @ts-expect-error
+        .mockReturnValue(Promise.resolve({
+          items: mockedHistories
+        }));
+      expect(await new Histories().get()).toEqual(mockedHistories.map(({ fields }) => fields));
+      expect(spy).toHaveBeenCalledWith({
+        content_type: "history",
         limit: 1000
       });
     });
