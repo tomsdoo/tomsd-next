@@ -2,11 +2,12 @@ import { describe, it, expect, beforeAll, jest } from "@jest/globals";
 import { Artifacts, ContentfulClient, Histories, Profile, Skills } from "@/modules/contentful";
 
 describe("contentful", () => {
+  beforeAll(() => {
+    process.env.CONTENTFUL_SPACE_ID = "space";
+    process.env.CONTENTFUL_ACCESS_TOKEN = "token";
+  });
+
   describe("ContentfulClient", () => {
-    beforeAll(() => {
-      process.env.CONTENTFUL_SPACE_ID = "space";
-      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
-    });
     it("getEntries()", async () => {
       const spy = jest.spyOn(ContentfulClient.prototype, "getEntries").mockReturnValue(Promise.resolve({ stringifySafe: () => "", toPlainObject: () => ({}), total: 0, skip: 0, limit: 0, items: [] }));
       const client = new ContentfulClient();
@@ -20,10 +21,6 @@ describe("contentful", () => {
   });
 
   describe("Profile", () => {
-    beforeAll(() => {
-      process.env.CONTENTFUL_SPACE_ID = "space";
-      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
-    });
     it("get()", async () => {
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
@@ -46,10 +43,6 @@ describe("contentful", () => {
   });
 
   describe("Skills", () => {
-    beforeAll(() => {
-      process.env.CONTENTFUL_SPACE_ID = "space";
-      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
-    });
     it("get()", async () => {
       const mockedSkills = [
         {
@@ -74,10 +67,6 @@ describe("contentful", () => {
   });
 
   describe("Histories", () => {
-    beforeAll(() => {
-      process.env.CONTENTFUL_SPACE_ID = "space";
-      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
-    });
     it("get()", async () => {
       const mockedHistories = [
         {
@@ -116,11 +105,6 @@ describe("contentful", () => {
   });
 
   describe("Artifacts", () => {
-    beforeAll(() => {
-      process.env.CONTENTFUL_SPACE_ID = "space";
-      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
-    });
-
     it("get()", async () => {
       const mockedItems = [1,2].map(i => ({
         fields: {
