@@ -24,10 +24,14 @@ const QUERY_PROFILE = gql(`
   }
   `);
 
-export default function Profile(){
+export default function Profile() {
   const { loading, error, data } = useQuery(QUERY_PROFILE);
-  if(loading){return <div>loading</div>;}
-  if(error){return <div>error</div>;}
+  if (loading) {
+    return <div>loading</div>;
+  }
+  if (error) {
+    return <div>error</div>;
+  }
 
   return (
     <div className={styles.profile}>
@@ -44,30 +48,31 @@ export default function Profile(){
       <div className={`${styles.certificates} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>verified</span>
         <ul>
-          {data.profile.certificates.map((certificate, index) => <li key={index}>{certificate.title}</li>)}
+          {data.profile.certificates.map((certificate, index) => (
+            <li key={index}>{certificate.title}</li>
+          ))}
         </ul>
       </div>
       <div className={`${styles.favorites} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>favorite</span>
         <ul>
-          {data.profile.favorites.map((favorite, index) => <li key={index}>{favorite}</li>)}
+          {data.profile.favorites.map((favorite, index) => (
+            <li key={index}>{favorite}</li>
+          ))}
         </ul>
       </div>
       <div className={`${styles.links} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>link</span>
         <ul className={styles.linkList}>
-          {
-            data.profile.links.map(
-              (link, index) =>
-                <li key={index} className={styles.linkListItem}>
-                  <a className={styles.link} href={link.url} target="_blank">
-                    <img className={styles.image} src={link.image} />
-                    <span className={styles.url}>{link.url}</span>
-                    <span className={styles.linkShortName}>{link.shortName}</span>
-                  </a>
-                </li>
-            )
-          }
+          {data.profile.links.map((link, index) => (
+            <li key={index} className={styles.linkListItem}>
+              <a className={styles.link} href={link.url} target="_blank">
+                <img className={styles.image} src={link.image} />
+                <span className={styles.url}>{link.url}</span>
+                <span className={styles.linkShortName}>{link.shortName}</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

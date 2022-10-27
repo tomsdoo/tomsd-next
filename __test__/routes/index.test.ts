@@ -1,7 +1,7 @@
 import { describe, it, expect, jest, beforeAll } from "@jest/globals";
 import { routes } from "@/routes/index";
 
-function getPathname(url){
+function getPathname(url) {
   return new URL(url, "http://localhost:8080").pathname;
 }
 
@@ -29,7 +29,6 @@ describe("routes", () => {
     it("/profile?id=1 matches", () => {
       expect(route?.pathRegexp?.test(getPathname(`/profile?id=1`))).toBe(true);
     });
-
   });
 
   describe("/skills", () => {
@@ -109,5 +108,4 @@ describe("routes", () => {
       expect(route?.pathRegexp?.test(getPathname(`/links?id=1`))).toBe(true);
     });
   });
-
 });

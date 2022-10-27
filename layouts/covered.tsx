@@ -12,7 +12,7 @@ type Props = {
   loaded: boolean;
 };
 
-export default function Layout({ children, loaded, ...props }: Props){
+export default function Layout({ children, loaded, ...props }: Props) {
   const nodeRef = useRef(null);
   const router = useRouter();
 
@@ -28,17 +28,29 @@ export default function Layout({ children, loaded, ...props }: Props){
               </Link>
             </div>
             <ul className={styles.links}>
-              {
-                routes.map((route, index) =>
-                  <Link key={index} href={route.href}>
-                    <a className={`${styles.link} ${router.pathname.startsWith(route.href) ? styles.active : ""}`}>{route.headerLink.title}</a>
-                  </Link>
-                )
-              }
+              {routes.map((route, index) => (
+                <Link key={index} href={route.href}>
+                  <a
+                    className={`${styles.link} ${
+                      router.pathname.startsWith(route.href)
+                        ? styles.active
+                        : ""
+                    }`}
+                  >
+                    {route.headerLink.title}
+                  </a>
+                </Link>
+              ))}
             </ul>
           </div>
         </header>
-        <CSSTransition nodeRef={nodeRef} in={loaded} appear={loaded} timeout={100} classNames={{...upwardStyles}}>
+        <CSSTransition
+          nodeRef={nodeRef}
+          in={loaded}
+          appear={loaded}
+          timeout={100}
+          classNames={{ ...upwardStyles }}
+        >
           <main className={styles.main} ref={nodeRef}>
             {children}
           </main>

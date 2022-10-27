@@ -12,10 +12,14 @@ const QUERY_ARTICLE = gql(`
 
 const Article = ({ articleId }) => {
   const { loading, error, data } = useQuery(QUERY_ARTICLE, {
-    variables: { id: articleId }
+    variables: { id: articleId },
   });
-  if(loading){return <div>loading</div>;}
-  if(error){return <div>error</div>;}
+  if (loading) {
+    return <div>loading</div>;
+  }
+  if (error) {
+    return <div>error</div>;
+  }
 
   return (
     <div>
@@ -24,6 +28,6 @@ const Article = ({ articleId }) => {
       <div>{data.article.content}</div>
     </div>
   );
-}
+};
 
 export default Article;

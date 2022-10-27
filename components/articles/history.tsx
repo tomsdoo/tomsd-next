@@ -15,40 +15,47 @@ const QUERY_HISTORIES = gql(`
   }
   `);
 
-
-function getTerm({ start, end }){
+function getTerm({ start, end }) {
   const localStart = new Date(start);
   const localEnd = (end && new Date(end)) ?? new Date();
   const totalMonths = differenceInMonths(localEnd, localStart);
   const term = {
     years: Math.floor(totalMonths / 12),
-    months: totalMonths % 12
+    months: totalMonths % 12,
   };
   return {
     ...term,
-    text: [
-      term.years > 0 ? `${term.years}年` : "",
-      `${term.months}月`
-    ].join(" ")
+    text: [term.years > 0 ? `${term.years}年` : "", `${term.months}月`].join(
+      " "
+    ),
   };
 }
-function formatYM(date?: string){
+function formatYM(date?: string) {
   return format((date && new Date(date)) ?? new Date(), "yyyy.MM");
 }
 
-function Badges({ badges, ...props }){
+function Badges({ badges, ...props }) {
   return (
     <ul {...props}>
-      {badges.map((badge, index) => <li key={index}>{`#${badge}`}</li>)}
+      {badges.map((badge, index) => (
+        <li key={index}>{`#${badge}`}</li>
+      ))}
     </ul>
   );
 }
 
-function HistoryItem({history: { companyDescription, title, start, end, badges, description }}){
+function HistoryItem({
+  history: { companyDescription, title, start, end, badges, description },
+}) {
   const term = getTerm({ start, end });
   return (
     <>
-      <span className={historyStyles.term}><span className={historyStyles.span}>{formatYM(start)} - {formatYM(end)}</span>({term.text})</span>
+      <span className={historyStyles.term}>
+        <span className={historyStyles.span}>
+          {formatYM(start)} - {formatYM(end)}
+        </span>
+        ({term.text})
+      </span>
       <div className={historyStyles.companyAndTitle}>
         <div className={historyStyles.company}>{companyDescription}</div>
         <div className={historyStyles.title}>{title}</div>
@@ -59,14 +66,22 @@ function HistoryItem({history: { companyDescription, title, start, end, badges, 
   );
 }
 
-export default function History(){
+export default function History() {
   const { loading, error, data } = useQuery(QUERY_HISTORIES);
-  if(loading){return;}
-  if(error){return;}
+  if (loading) {
+    return;
+  }
+  if (error) {
+    return;
+  }
   return (
     <div className={historyStyles.area}>
       <ol className={historyStyles.list}>
-        {data.histories.map((history, index) => <li key={index} className={historyStyles.item}><HistoryItem history={history} /></li>)}
+        {data.histories.map((history, index) => (
+          <li key={index} className={historyStyles.item}>
+            <HistoryItem history={history} />
+          </li>
+        ))}
       </ol>
     </div>
   );

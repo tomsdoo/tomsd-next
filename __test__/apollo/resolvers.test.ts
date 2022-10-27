@@ -9,14 +9,16 @@ describe("apollo", () => {
   });
   describe("resolvers", () => {
     it("artifacts", async () => {
-      const mockedValue = [1,2].map(i => ({
+      const mockedValue = [1, 2].map((i) => ({
         title: `artifact ${i}`,
         link: `link ${i}`,
         description: `description ${i}`,
         image: `image ${i}`,
-        orderScore: i
+        orderScore: i,
       }));
-      const spy = jest.spyOn(Artifacts.prototype, "get").mockReturnValue(Promise.resolve(mockedValue));
+      const spy = jest
+        .spyOn(Artifacts.prototype, "get")
+        .mockReturnValue(Promise.resolve(mockedValue));
       // @ts-expect-error
       expect(await resolvers.Query.artifacts()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
@@ -31,9 +33,11 @@ describe("apollo", () => {
         location: "location",
         certificate: [],
         favorites: ["test1"],
-        links: []
+        links: [],
       };
-      const spy = jest.spyOn(Profile.prototype, "get").mockReturnValue(Promise.resolve(mockedValue));
+      const spy = jest
+        .spyOn(Profile.prototype, "get")
+        .mockReturnValue(Promise.resolve(mockedValue));
       // @ts-expect-error
       expect(await resolvers.Query.profile()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
