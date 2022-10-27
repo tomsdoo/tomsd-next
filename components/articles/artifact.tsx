@@ -7,6 +7,7 @@ export default function Artifact({ artifact }) {
     <a
       href={artifact.link}
       target="_blank"
+      rel="noreferrer"
       className={`${frostedStyles.frosted} ${shadowStyles.shadow_2_8_787878} ${artifactStyles.link}`}
     >
       <div className={artifactStyles.title}>{artifact.title}</div>
