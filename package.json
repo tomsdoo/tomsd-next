@@ -10,6 +10,7 @@
     "format:components": "prettier --write components/**/*.tsx",
     "format:layouts": "prettier --write layouts/**/*.tsx",
     "format:modules": "prettier --write modules/**/*.ts",
+    "format:pages": "prettier --write pages/**/*.tsx",
     "format:test": "prettier --write __test__/**/*.ts",
     "test": "jest"
   },
