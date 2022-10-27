@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, jest } from "@jest/globals";
-import { ContentfulClient, Histories, Profile, Skills } from "@/modules/contentful";
+import { Artifacts, ContentfulClient, Histories, Profile, Skills } from "@/modules/contentful";
 
 describe("contentful", () => {
   describe("ContentfulClient", () => {
@@ -110,6 +110,37 @@ describe("contentful", () => {
       expect(await new Histories().get()).toEqual(mockedHistories.map(({ fields }) => fields));
       expect(spy).toHaveBeenCalledWith({
         content_type: "history",
+        limit: 1000
+      });
+    });
+  });
+
+  describe("Artifacts", () => {
+    beforeAll(() => {
+      process.env.CONTENTFUL_SPACE_ID = "space";
+      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
+    });
+
+    it("get()", async () => {
+      const mockedItems = [1,2].map(i => ({
+        fields: {
+          title: `artifact ${i}`,
+          link: `artifact link ${i}`,
+          description: `artifact description ${i}`,
+          image: `artifact image ${i}`,
+          orderScore: i
+        }
+      }));
+
+      const spy = jest
+        .spyOn(ContentfulClient.prototype, "getEntries")
+        // @ts-expect-error
+        .mockReturnValue(Promise.resolve({
+          items: mockedItems
+        }));
+      expect(await new Artifacts().get()).toEqual(mockedItems.map(({ fields }) => fields));
+      expect(spy).toHaveBeenCalledWith({
+        content_type: "artifact",
         limit: 1000
       });
     });
