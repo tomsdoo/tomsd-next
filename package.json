@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "format:apollo": "prettier --write apollo/**/*.ts",
     "format:test": "prettier --write __test__/**/*.ts",
     "test": "jest"
   },
