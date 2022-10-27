@@ -33,8 +33,7 @@
 
 .innerHeader {
   display: grid;
-  grid-template:
-    "logo links" max-content / 1fr max-content;
+  grid-template: "logo links" max-content / 1fr max-content;
   padding: 0 2rem;
 }
 
@@ -65,7 +64,8 @@
   text-decoration-thickness: 1px;
 }
 .link:hover {
-  text-shadow: 0 0 1px var(--default-color), 0 0 10px #ffffff, 0 0 12px var(--default-color);
+  text-shadow: 0 0 1px var(--default-color), 0 0 10px #ffffff,
+    0 0 12px var(--default-color);
 }
 
 .main {

@@ -41,7 +41,8 @@
   grid-gap: 0.5rem;
 }
 
-.menuItem {}
+.menuItem {
+}
 
 .menuLink {
   font-size: 2rem;
@@ -63,7 +64,8 @@
 }
 
 @keyframes photo-color {
-  0% {}
+  0% {
+  }
   50% {
     filter: saturate(0);
   }
