@@ -1,6 +1,6 @@
 import { beforeAll, describe, it, expect, jest } from "@jest/globals";
 import { resolvers } from "@/apollo/resolvers";
-import { Artifacts } from "@/modules/contentful";
+import { Artifacts, Profile } from "@/modules/contentful";
 
 describe("apollo", () => {
   beforeAll(() => {
@@ -19,6 +19,23 @@ describe("apollo", () => {
       const spy = jest.spyOn(Artifacts.prototype, "get").mockReturnValue(Promise.resolve(mockedValue));
       // @ts-expect-error
       expect(await resolvers.Query.artifacts()).toEqual(mockedValue);
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it("profile", async () => {
+      const mockedValue = {
+        name: "test",
+        photo: "photo",
+        title: "title",
+        description: "description",
+        location: "location",
+        certificate: [],
+        favorites: ["test1"],
+        links: []
+      };
+      const spy = jest.spyOn(Profile.prototype, "get").mockReturnValue(Promise.resolve(mockedValue));
+      // @ts-expect-error
+      expect(await resolvers.Query.profile()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
   });
