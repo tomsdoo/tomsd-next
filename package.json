@@ -9,6 +9,7 @@
     "format:apollo": "prettier --write apollo/**/*.ts",
     "format:components": "prettier --write components/**/*.tsx",
     "format:layouts": "prettier --write layouts/**/*.tsx",
+    "format:modules": "prettier --write modules/**/*.ts",
     "format:test": "prettier --write __test__/**/*.ts",
     "test": "jest"
   },
