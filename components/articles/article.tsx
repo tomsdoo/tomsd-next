@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { FC, ReactElement } from "react";
 
 const QUERY_ARTICLE = gql(`
   query article($id: Int!) {
@@ -10,7 +11,7 @@ const QUERY_ARTICLE = gql(`
   }
   `);
 
-const Article = ({ articleId }) => {
+const Article: FC = ({ articleId }: { articleId: string }): ReactElement => {
   const { loading, error, data } = useQuery(QUERY_ARTICLE, {
     variables: { id: articleId },
   });

@@ -1,8 +1,9 @@
+import { ReactElement } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { routes } from "@/routes/index";
 
-export default function DynamicHead() {
+export default function DynamicHead(): ReactElement {
   const siteName = "tomsd";
 
   const headCandidates = [

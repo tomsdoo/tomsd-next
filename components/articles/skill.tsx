@@ -1,8 +1,17 @@
+import { ReactElement } from "react";
 import frostedStyles from "@/styles/named/frosted.module.css";
 import shadowStyles from "@/styles/named/shadow.module.css";
 import skillStyles from "@/styles/components/articles/skill.module.css";
 
-export default function Skill({ skill }) {
+interface Props {
+  skill: {
+    years: number;
+    title: string;
+    description: string;
+  }
+}
+
+export default function Skill({ skill }: Props): ReactElement {
   const maxYears = 5;
   const years = skill.years > maxYears ? `${maxYears}+` : `${skill.years}`;
 
