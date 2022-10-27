@@ -6,12 +6,14 @@ import shadowStyles from "@/styles/named/shadow.module.css";
 import ApolloProvider from "@/components/providers/apollo";
 import Profile from "@/components/articles/profile";
 
-export default function Page(){
+export default function Page() {
   return (
     <ApolloProvider>
       <DynamicHead />
       <Layout loaded={true}>
-        <article className={`${pageStyles.article} ${frostedStyles.frosted} ${shadowStyles.shadow_2_8_787878}`}>
+        <article
+          className={`${pageStyles.article} ${frostedStyles.frosted} ${shadowStyles.shadow_2_8_787878}`}
+        >
           <Profile />
         </article>
       </Layout>

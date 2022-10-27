@@ -4,7 +4,7 @@ import pageStyles from "@/styles/pages/skills.module.css";
 import ApolloProvider from "@/components/providers/apollo";
 import Skills from "@/components/articles/skills";
 
-export default function Page(){
+export default function Page() {
   return (
     <ApolloProvider>
       <DynamicHead />
