@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, jest } from "@jest/globals";
-import { ContentfulClient } from "@/modules/contentful";
+import { ContentfulClient, Profile } from "@/modules/contentful";
 
 describe("contentful", () => {
   describe("ContentfulClient", () => {
@@ -15,6 +15,32 @@ describe("contentful", () => {
       });
       expect(spy).toHaveBeenCalledWith({
         content_type: "test"
+      });
+    });
+  });
+
+  describe("Profile", () => {
+    beforeAll(() => {
+      process.env.CONTENTFUL_SPACE_ID = "space";
+      process.env.CONTENTFUL_ACCESS_TOKEN = "token";
+    });
+    it("get()", async () => {
+      const spy = jest
+        .spyOn(ContentfulClient.prototype, "getEntries")
+        // @ts-expect-error
+        .mockReturnValue(Promise.resolve({
+          items: [
+            {
+              fields: {
+                json: { name: "test" }
+              }
+            }
+          ]
+        }));
+      expect(await new Profile().get()).toEqual({ name: "test" });
+      expect(spy).toHaveBeenCalledWith({
+        content_type: "anydoc",
+        "fields.name": "tomsd-page-profile"
       });
     });
   });
