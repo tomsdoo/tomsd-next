@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
 import frostedStyles from "@/styles/named/frosted.module.css";
+import widthCoordinatedStyles from "@/styles/named/widthCoordinated.module.css";
 import { routes } from "@/routes/index";
 
 type Props = {
@@ -21,7 +22,7 @@ export default function Layout({ children, loaded, ...props }: Props) {
       <div className={styles.cover}></div>
       <div className={styles.screen}>
         <header className={`${styles.header} ${frostedStyles.frostedALittle}`}>
-          <div className={styles.innerHeader}>
+          <div className={`${styles.innerHeader} ${styles.widthCoordinated}`}>
             <div className={styles.logo}>
               <Link href="/">
                 <a className={styles.link}>tomsd</a>
@@ -52,7 +53,9 @@ export default function Layout({ children, loaded, ...props }: Props) {
           classNames={{ ...upwardStyles }}
         >
           <main className={styles.main} ref={nodeRef}>
-            {children}
+            <div className={`${styles.widthCoordinated} ${styles.innerMain}`}>
+              {children}
+            </div>
           </main>
         </CSSTransition>
       </div>
