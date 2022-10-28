@@ -16,6 +16,7 @@ export default function Page(): ReactElement {
                 style={{ animationDelay: `${i * 50}ms` }}
                 className={styles.photo}
                 src={`https://picsum.photos/${50 + i}`}
+                alt=""
               />
             </li>
           ))}
