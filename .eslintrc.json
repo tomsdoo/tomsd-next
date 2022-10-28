@@ -1,17 +1,5 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "standard-with-typescript"
-  ],
-  "parserOptions": {
-    "project" : "./tsconfig.json"
-  },
-  "rules": {
-    "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/semi": "off",
-    "@typescript-eslint/quotes": "off",
-    "@typescript-eslint/comma-dangle": "off",
-    "@typescript-eslint/space-before-function-paren": "off",
-    "@typescript-eslint/member-delimiter-style": "off"
-  }
+    "next/core-web-vitals"
+  ]
 }
