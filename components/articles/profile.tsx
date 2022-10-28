@@ -37,7 +37,7 @@ export default function Profile(): ReactElement {
   return (
     <div className={styles.profile}>
       <div className={styles.nameArea}>
-        <img className={styles.photo} src={data.profile.photo} />
+        <img className={styles.photo} src={data.profile.photo} alt="photo" />
         <div className={styles.name}>{data.profile.name}</div>
       </div>
       <div className={styles.title}>{data.profile.title}</div>
@@ -68,7 +68,7 @@ export default function Profile(): ReactElement {
           {data.profile.links.map((link, index) => (
             <li key={index} className={styles.linkListItem}>
               <a className={styles.link} href={link.url} target="_blank" rel="noreferrer">
-                <img className={styles.image} src={link.image} />
+                <img className={styles.image} src={link.image} alt={`image: ${link.shortName}`} />
                 <span className={styles.url}>{link.url}</span>
                 <span className={styles.linkShortName}>{link.shortName}</span>
               </a>
