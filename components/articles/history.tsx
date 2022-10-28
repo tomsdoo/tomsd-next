@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, DetailedHTMLProps, HTMLAttributes } from "react";
 import { gql, useQuery } from "@apollo/client";
 import historyStyles from "@/styles/components/articles/history.module.css";
 import { format, differenceInMonths } from "date-fns";
@@ -39,7 +39,7 @@ interface BadgesProps {
   badges: string[];
 }
 
-function Badges({ badges, ...props }: BadgesProps): ReactElement {
+function Badges({ badges, ...props }: BadgesProps & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>): ReactElement {
   return (
     <ul {...props}>
       {badges.map((badge, index) => (
