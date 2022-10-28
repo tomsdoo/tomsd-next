@@ -1,6 +1,6 @@
 import { beforeAll, describe, it, expect, jest } from "@jest/globals";
 import { resolvers } from "@/apollo/resolvers";
-import { Artifacts, Profile, Skills } from "@/modules/contentful";
+import { Artifacts, Histories, Profile, Skills } from "@/modules/contentful";
 
 describe("apollo", () => {
   beforeAll(() => {
@@ -56,6 +56,24 @@ describe("apollo", () => {
         .mockReturnValue(Promise.resolve(mockedValue));
       // @ts-expect-error
       expect(await resolvers.Query.skills()).toEqual(mockedValue);
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it("histories", async () => {
+      const mockedValue = [1,2].map((i) => ({
+        title: `history ${i}`,
+        start: `start ${i}`,
+        end: `end ${i}`,
+        companyDescription: `companyDescription ${i}`,
+        description: `description ${i}`,
+        badges: ["badge 1","badge 2"]
+      }));
+
+      const spy = jest
+        .spyOn(Histories.prototype, "get")
+        .mockReturnValue(Promise.resolve(mockedValue));
+      // @ts-expect-error
+      expect(await resolvers.Query.histories()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
   });
