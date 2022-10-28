@@ -1,8 +1,9 @@
+import { ReactElement } from "react";
 import DynamicHead from "@/components/heads/head";
 import Layout from "@/layouts/covered";
 import styles from "@/styles/pages/404.module.css";
 
-export default function Page() {
+export default function Page(): ReactElement {
   return (
     <>
       <DynamicHead />

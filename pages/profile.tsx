@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import DynamicHead from "@/components/heads/head";
 import Layout from "@/layouts/covered";
 import pageStyles from "@/styles/pages/profile.module.css";
@@ -6,7 +7,7 @@ import shadowStyles from "@/styles/named/shadow.module.css";
 import ApolloProvider from "@/components/providers/apollo";
 import Profile from "@/components/articles/profile";
 
-export default function Page() {
+export default function Page(): ReactElement {
   return (
     <ApolloProvider>
       <DynamicHead />

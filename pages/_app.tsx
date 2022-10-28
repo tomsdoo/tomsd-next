@@ -1,7 +1,8 @@
+import { ReactElement } from "react";
 import "destyle.css";
 import "@/styles/all.css";
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps }): ReactElement {
   return <Component {...pageProps} />;
 }
 

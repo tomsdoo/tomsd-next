@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import skillsStyles from "@/styles/components/articles/skills.module.css";
 import Skill from "@/components/articles/skill";
@@ -13,7 +14,7 @@ const QUERY_SKILLS = gql(`
   }
   `);
 
-export default function Skills() {
+export default function Skills(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_SKILLS);
   if (loading) {
     return <div>loading</div>;

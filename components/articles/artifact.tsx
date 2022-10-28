@@ -1,8 +1,9 @@
+import { ReactElement } from "react";
 import frostedStyles from "@/styles/named/frosted.module.css";
 import shadowStyles from "@/styles/named/shadow.module.css";
 import artifactStyles from "@/styles/components/articles/artifact.module.css";
 
-export default function Artifact({ artifact }) {
+export default function Artifact({ artifact }): ReactElement {
   return (
     <a
       href={artifact.link}
