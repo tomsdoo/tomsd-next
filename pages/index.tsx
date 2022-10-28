@@ -22,11 +22,19 @@ export default function Page(): ReactElement {
           ))}
         </ul>
         <div className={styles.form}>
+          <h2 className={styles.formHeading}>tomsd</h2>
           <ul className={styles.menuList}>
             {routes.map((route, index) => (
               <li key={index} className={styles.menuItem}>
                 <Link href={route.href}>
-                  <a className={styles.menuLink}>{route.headerLink.title}</a>
+                  <a className={styles.menuLink}>
+                    <span className={`material-icons ${styles.menuIcon}`}>
+                      flag
+                    </span>
+                    <span className={styles.menuText}>
+                      {route.headerLink.title}
+                    </span>
+                  </a>
                 </Link>
               </li>
             ))}
