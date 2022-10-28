@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import styles from "@/styles/components/articles/profile.module.css";
 
@@ -24,7 +25,7 @@ const QUERY_PROFILE = gql(`
   }
   `);
 
-export default function Profile() {
+export default function Profile(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_PROFILE);
   if (loading) {
     return <div>loading</div>;

@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import artifactsStyles from "@/styles/components/articles/artifacts.module.css";
 import Artifact from "@/components/articles/artifact";
@@ -14,7 +15,7 @@ const QUERY_ARTIFACTS = gql(`
   }
   `);
 
-export default function Artifacts() {
+export default function Artifacts(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_ARTIFACTS);
   if (loading) {
     return <div>loading</div>;

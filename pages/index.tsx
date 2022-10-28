@@ -1,9 +1,10 @@
+import { ReactElement } from "react";
 import Link from "next/link";
 import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 
-export default function Page() {
+export default function Page(): ReactElement {
   return (
     <>
       <DynamicHead />

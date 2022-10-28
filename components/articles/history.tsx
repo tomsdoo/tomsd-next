@@ -1,6 +1,7 @@
+import { ReactElement, DetailedHTMLProps, HTMLAttributes } from "react";
 import { gql, useQuery } from "@apollo/client";
 import historyStyles from "@/styles/components/articles/history.module.css";
-import { format, differenceInYears, differenceInMonths } from "date-fns";
+import { format, differenceInMonths } from "date-fns";
 
 const QUERY_HISTORIES = gql(`
   query histories {
@@ -15,7 +16,7 @@ const QUERY_HISTORIES = gql(`
   }
   `);
 
-function getTerm({ start, end }) {
+function getTerm({ start, end }): { years: number; months: number; text: string; } {
   const localStart = new Date(start);
   const localEnd = (end && new Date(end)) ?? new Date();
   const totalMonths = differenceInMonths(localEnd, localStart);
@@ -30,11 +31,15 @@ function getTerm({ start, end }) {
     ),
   };
 }
-function formatYM(date?: string) {
+function formatYM(date?: string): string {
   return format((date && new Date(date)) ?? new Date(), "yyyy.MM");
 }
 
-function Badges({ badges, ...props }) {
+interface BadgesProps {
+  badges: string[];
+}
+
+function Badges({ badges, ...props }: BadgesProps & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>): ReactElement {
   return (
     <ul {...props}>
       {badges.map((badge, index) => (
@@ -46,7 +51,7 @@ function Badges({ badges, ...props }) {
 
 function HistoryItem({
   history: { companyDescription, title, start, end, badges, description },
-}) {
+}): ReactElement {
   const term = getTerm({ start, end });
   return (
     <>
@@ -66,7 +71,7 @@ function HistoryItem({
   );
 }
 
-export default function History() {
+export default function History(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_HISTORIES);
   if (loading) {
     return;
