@@ -13,7 +13,11 @@ export default function Artifact({ artifact }): ReactElement {
     >
       <div className={artifactStyles.title}>{artifact.title}</div>
       <div className={artifactStyles.description}>{artifact.description}</div>
-      <img className={artifactStyles.image} src={artifact.image} alt={`image: ${artifact.title}` } />
+      <img
+        className={artifactStyles.image}
+        src={artifact.image}
+        alt={`image: ${artifact.title}`}
+      />
     </a>
   );
 }

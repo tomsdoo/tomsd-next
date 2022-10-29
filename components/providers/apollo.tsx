@@ -6,7 +6,10 @@ interface Props {
   children: ReactNode;
 }
 
-export default function MyApolloProvider({ children, ...props }: Props): ReactElement {
+export default function MyApolloProvider({
+  children,
+  ...props
+}: Props): ReactElement {
   return (
     <ApolloProvider {...props} client={client}>
       {children}

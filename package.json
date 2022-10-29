@@ -17,6 +17,7 @@
     "format:styles": "prettier --write styles/**/*.css",
     "format:test": "prettier --write __test__/**/*.ts",
     "lint": "next lint",
+    "prepare": "husky install",
     "test": "jest"
   },
   "repository": {
@@ -54,6 +55,7 @@
     "babel-jest": "^29.2.2",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
+    "husky": "^8.0.1",
     "jest": "^29.2.2",
     "prettier": "^2.7.1",
     "typescript": "4.8.4"

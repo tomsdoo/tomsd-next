@@ -8,7 +8,7 @@ interface SkillProps {
     years: number;
     title: string;
     description: string;
-  }
+  };
 }
 
 export default function Skill({ skill }: SkillProps): ReactElement {

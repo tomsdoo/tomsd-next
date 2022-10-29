@@ -67,8 +67,17 @@ export default function Profile(): ReactElement {
         <ul className={styles.linkList}>
           {data.profile.links.map((link, index) => (
             <li key={index} className={styles.linkListItem}>
-              <a className={styles.link} href={link.url} target="_blank" rel="noreferrer">
-                <img className={styles.image} src={link.image} alt={`image: ${link.shortName}`} />
+              <a
+                className={styles.link}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  className={styles.image}
+                  src={link.image}
+                  alt={`image: ${link.shortName}`}
+                />
                 <span className={styles.url}>{link.url}</span>
                 <span className={styles.linkShortName}>{link.shortName}</span>
               </a>
