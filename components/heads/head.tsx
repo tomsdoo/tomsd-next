@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { routes } from "@/routes/index";
+import { routes, siteIcon } from "@/routes/index";
 
 export default function DynamicHead(): ReactElement {
   const siteName = "tomsd";
@@ -31,6 +31,7 @@ export default function DynamicHead(): ReactElement {
       <meta charSet="UTF-8" />
       <meta name="description" content={displayingHead.meta.description} />
       <title>{displayingHead.meta.title}</title>
+      <link rel="icon" href={siteIcon} />
     </Head>
   );
 }

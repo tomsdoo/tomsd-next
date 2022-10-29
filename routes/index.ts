@@ -1,5 +1,8 @@
 const siteName = "tomsd";
 
+export const siteIcon =
+  "https://images.ctfassets.net/92wsih6ine68/7bRo9w8rDXNtNwM3JjITrn/be2bc1d8263f05900a1fcb4ead1d12a3/nana.png";
+
 export const routes = [
   {
     href: "/profile",
