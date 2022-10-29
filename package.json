@@ -17,6 +17,7 @@
     "format:styles": "prettier --write styles/**/*.css",
     "format:test": "prettier --write __test__/**/*.ts",
     "lint": "next lint",
+    "prepare": "husky install",
     "test": "jest"
   },
   "repository": {
