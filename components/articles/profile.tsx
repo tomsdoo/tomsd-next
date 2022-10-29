@@ -25,6 +25,17 @@ const QUERY_PROFILE = gql(`
   }
   `);
 
+interface ProfileData {
+  name: string;
+  photo: string;
+  title: string;
+  description: string;
+  location: string;
+  certificates: Array<{ title: string; when: string }>;
+  favorites: string[];
+  links: Array<{ name: string; image: string; url: string; shortName: string }>;
+}
+
 export default function Profile(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_PROFILE);
   if (loading) {
@@ -34,22 +45,24 @@ export default function Profile(): ReactElement {
     return <div>error</div>;
   }
 
+  const profile: ProfileData = data.profile;
+
   return (
     <div className={styles.profile}>
       <div className={styles.nameArea}>
-        <img className={styles.photo} src={data.profile.photo} alt="photo" />
-        <div className={styles.name}>{data.profile.name}</div>
+        <img className={styles.photo} src={profile.photo} alt="photo" />
+        <div className={styles.name}>{profile.name}</div>
       </div>
-      <div className={styles.title}>{data.profile.title}</div>
-      <div className={styles.description}>{data.profile.description}</div>
+      <div className={styles.title}>{profile.title}</div>
+      <div className={styles.description}>{profile.description}</div>
       <div className={`${styles.location} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>place</span>
-        <div className={styles.content}>{data.profile.location}</div>
+        <div className={styles.content}>{profile.location}</div>
       </div>
       <div className={`${styles.certificates} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>verified</span>
         <ul>
-          {data.profile.certificates.map((certificate, index) => (
+          {profile.certificates.map((certificate, index) => (
             <li key={index}>{certificate.title}</li>
           ))}
         </ul>
@@ -57,7 +70,7 @@ export default function Profile(): ReactElement {
       <div className={`${styles.favorites} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>favorite</span>
         <ul>
-          {data.profile.favorites.map((favorite, index) => (
+          {profile.favorites.map((favorite, index) => (
             <li key={index}>{favorite}</li>
           ))}
         </ul>
@@ -65,7 +78,7 @@ export default function Profile(): ReactElement {
       <div className={`${styles.links} ${styles.iconAndContent}`}>
         <span className={`${styles.icon} material-icons`}>link</span>
         <ul className={styles.linkList}>
-          {data.profile.links.map((link, index) => (
+          {profile.links.map((link, index) => (
             <li key={index} className={styles.linkListItem}>
               <a
                 className={styles.link}
