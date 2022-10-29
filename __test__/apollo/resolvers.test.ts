@@ -44,11 +44,11 @@ describe("apollo", () => {
     });
 
     it("skills", async () => {
-      const mockedValue = [1,2].map((i) => ({
+      const mockedValue = [1, 2].map((i) => ({
         title: `skill ${i}`,
         years: i,
         description: `description ${i}`,
-        web: i % 2 === 0
+        web: i % 2 === 0,
       }));
 
       const spy = jest
@@ -60,13 +60,13 @@ describe("apollo", () => {
     });
 
     it("histories", async () => {
-      const mockedValue = [1,2].map((i) => ({
+      const mockedValue = [1, 2].map((i) => ({
         title: `history ${i}`,
         start: `start ${i}`,
         end: `end ${i}`,
         companyDescription: `companyDescription ${i}`,
         description: `description ${i}`,
-        badges: ["badge 1","badge 2"]
+        badges: ["badge 1", "badge 2"],
       }));
 
       const spy = jest

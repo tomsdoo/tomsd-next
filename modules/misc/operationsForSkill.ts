@@ -5,23 +5,23 @@ interface Skill {
   score?: number;
 }
 
-export function addScoreWeb(skill: Skill){
+export function addScoreWeb(skill: Skill) {
   return {
     ...skill,
-    scoreWeb: skill.web ? 100 : 1
+    scoreWeb: skill.web ? 100 : 1,
   };
 }
 
-export function addScore(skill: Skill){
+export function addScore(skill: Skill) {
   return {
     ...skill,
-    score: skill.scoreWeb + skill.years
+    score: skill.scoreWeb + skill.years,
   };
 }
 
-export function extendSkill(skill: Skill){
-  return [
-    addScoreWeb,
-    addScore
-  ].reduce((currentSkill, fn) => fn(currentSkill), {...skill})
+export function extendSkill(skill: Skill) {
+  return [addScoreWeb, addScore].reduce(
+    (currentSkill, fn) => fn(currentSkill),
+    { ...skill }
+  );
 }

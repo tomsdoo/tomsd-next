@@ -16,7 +16,11 @@ const QUERY_HISTORIES = gql(`
   }
   `);
 
-function getTerm({ start, end }): { years: number; months: number; text: string; } {
+function getTerm({ start, end }): {
+  years: number;
+  months: number;
+  text: string;
+} {
   const localStart = new Date(start);
   const localEnd = (end && new Date(end)) ?? new Date();
   const totalMonths = differenceInMonths(localEnd, localStart);
@@ -39,7 +43,14 @@ interface BadgesProps {
   badges: string[];
 }
 
-function Badges({ badges, ...props }: BadgesProps & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>): ReactElement {
+function Badges({
+  badges,
+  ...props
+}: BadgesProps &
+  DetailedHTMLProps<
+    HTMLAttributes<HTMLUListElement>,
+    HTMLUListElement
+  >): ReactElement {
   return (
     <ul {...props}>
       {badges.map((badge, index) => (
