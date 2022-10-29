@@ -20,11 +20,6 @@
     "prepare": "husky install",
     "test": "jest"
   },
-  "lint-staged": {
-    "apollo/**/*.ts": [
-      "npm run format:apollo"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomsdoo/tomsd-next.git"
