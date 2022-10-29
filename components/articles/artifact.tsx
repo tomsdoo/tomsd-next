@@ -3,7 +3,16 @@ import frostedStyles from "@/styles/named/frosted.module.css";
 import shadowStyles from "@/styles/named/shadow.module.css";
 import artifactStyles from "@/styles/components/articles/artifact.module.css";
 
-export default function Artifact({ artifact }): ReactElement {
+interface Props {
+  artifact: {
+    title: string;
+    image: string;
+    description: string;
+    link: string;
+  };
+}
+
+export default function Artifact({ artifact }: Props): ReactElement {
   return (
     <a
       href={artifact.link}
