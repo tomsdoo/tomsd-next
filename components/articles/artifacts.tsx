@@ -3,7 +3,7 @@ import { gql, useQuery } from "@apollo/client";
 import artifactsStyles from "@/styles/components/articles/artifacts.module.css";
 import Artifact from "@/components/articles/artifact";
 
-const QUERY_ARTIFACTS = gql(`
+export const QUERY_ARTIFACTS = gql(`
   query artifacts {
     artifacts {
       title
