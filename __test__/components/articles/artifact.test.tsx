@@ -1,27 +1,25 @@
-import { beforeAll, describe, it, expect } from "@jest/globals";
+/**
+ * @jest-environment jsdom
+ */
+import { describe, it, expect } from "@jest/globals";
+import "@testing-library/jest-dom";
 import React from "react";
 import Artifact from "@/components/articles/artifact";
-import { render } from "@testing-library/react";
-import { JSDOM } from "jsdom";
+import { render, screen } from "@testing-library/react";
 
 describe("Artifact component", () => {
-  beforeAll(() => {
-    // @ts-expect-error
-    globalThis.window = new JSDOM().window;
-    globalThis.document = window.document;
-  });
-
-  it("render", () => {
+  it("render", async () => {
     const artifact = {
       link: "link",
       title: "title",
       image: "image",
       description: "description",
     };
-    render(<Artifact artifact={artifact} />);
-    // FIXME: screen(@testing-library/react) doesn't work
-    // console.log(screen.queryByText("title"));
-    const anchor = document.querySelector(`a[href='link']`);
+    const { container } = render(<Artifact artifact={artifact} />);
+    expect(await screen.findByText("title")).toBeInTheDocument();
+    expect(await screen.findByText("description")).toBeInTheDocument();
+    expect(await screen.findByAltText("image: title")).toBeInTheDocument();
+    const anchor = container.querySelector(`a[href='link']`);
     expect(anchor).not.toBeNull();
     expect(anchor.childNodes).toHaveLength(3);
     const titleDiv = anchor.childNodes[0];
