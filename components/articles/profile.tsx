@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import styles from "@/styles/components/articles/profile.module.css";
 
-const QUERY_PROFILE = gql(`
+export const QUERY_PROFILE = gql(`
   query profile {
     profile {
       name
