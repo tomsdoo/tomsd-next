@@ -1,12 +1,22 @@
 /**
  * @jest-environment jsdom
  */
-import { describe, it, expect } from "@jest/globals";
+import { describe, it, expect, jest } from "@jest/globals";
 import { MockedProvider } from "@apollo/client/testing";
 import "@testing-library/jest-dom";
 import React from "react";
 import Artifacts, { QUERY_ARTIFACTS } from "@/components/articles/artifacts";
 import { render, screen } from "@testing-library/react";
+
+jest.mock(
+  "@/components/articles/artifact",
+  () =>
+    function Artifact() {
+      return (
+        <mocked-artifact data-testid="mocked-artifact">test</mocked-artifact>
+      );
+    }
+);
 
 describe("Artifacts component", () => {
   it("render", async () => {
@@ -39,6 +49,6 @@ describe("Artifacts component", () => {
       </MockedProvider>
     );
     expect(await screen.findByText("loading")).toBeInTheDocument();
-    expect(await screen.findByText("title")).toBeInTheDocument();
+    expect(await screen.findByTestId("mocked-artifact")).toBeInTheDocument();
   });
 });
