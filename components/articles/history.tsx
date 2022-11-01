@@ -3,7 +3,7 @@ import { gql, useQuery } from "@apollo/client";
 import historyStyles from "@/styles/components/articles/history.module.css";
 import { format, differenceInMonths } from "date-fns";
 
-const QUERY_HISTORIES = gql(`
+export const QUERY_HISTORIES = gql(`
   query histories {
     histories {
       title
@@ -43,7 +43,7 @@ interface BadgesProps {
   badges: string[];
 }
 
-function Badges({
+export function Badges({
   badges,
   ...props
 }: BadgesProps &
@@ -60,7 +60,7 @@ function Badges({
   );
 }
 
-function HistoryItem({
+export function HistoryItem({
   history: { companyDescription, title, start, end, badges, description },
 }): ReactElement {
   const term = getTerm({ start, end });
