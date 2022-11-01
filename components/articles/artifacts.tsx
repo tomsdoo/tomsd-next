@@ -31,7 +31,9 @@ export default function Artifacts(): ReactElement {
   return (
     <ul className={artifactsStyles.list}>
       {artifacts.map((artifact, index) => (
-        <Artifact key={index} artifact={artifact} />
+        <li key={index}>
+          <Artifact artifact={artifact} />
+        </li>
       ))}
     </ul>
   );
