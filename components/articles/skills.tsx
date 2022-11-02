@@ -4,7 +4,7 @@ import skillsStyles from "@/styles/components/articles/skills.module.css";
 import Skill from "@/components/articles/skill";
 import { extendSkill } from "@/modules/misc/operationsForSkill";
 
-const QUERY_SKILLS = gql(`
+export const QUERY_SKILLS = gql(`
   query skills {
     skills {
       title
