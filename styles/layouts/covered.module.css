@@ -56,6 +56,11 @@
   grid-gap: 0.5rem;
 }
 
+.linkItem {
+  display: grid;
+  align-items: center;
+}
+
 .link {
   padding: 0.5em;
   display: grid;
