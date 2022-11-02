@@ -38,5 +38,7 @@ describe("top page", () => {
     expect(await screen.findByTestId("mocked-head")).toBeInTheDocument();
     expect(container.querySelectorAll("ul li img")).toHaveLength(20);
     expect(await screen.findAllByTestId("mocked-link")).toHaveLength(2);
+    expect(await screen.findByText("route title 0")).toBeInTheDocument();
+    expect(await screen.findByText("route title 1")).toBeInTheDocument();
   });
 });
