@@ -58,6 +58,7 @@
     "icon" max-content
     "text" max-content / 1fr;
   justify-content: center;
+  grid-gap: 1rem;
   font-size: 2rem;
   text-shadow: 0 0 3px;
   padding: 2rem;

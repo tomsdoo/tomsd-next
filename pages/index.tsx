@@ -33,7 +33,7 @@ export default function Page(): ReactElement {
                 <Link href={route.href}>
                   <a className={styles.menuLink}>
                     <span className={`material-icons ${styles.menuIcon}`}>
-                      flag
+                      snowing
                     </span>
                     <span className={styles.menuText}>
                       {route.headerLink.title}
