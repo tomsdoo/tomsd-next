@@ -85,7 +85,11 @@ export function HistoryItem({
 export default function History(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_HISTORIES);
   if (loading) {
-    return;
+    return (
+      <div className={historyStyles.loading}>
+        <span className={historyStyles.spinner}></span>
+      </div>
+    );
   }
   if (error) {
     return;
