@@ -32,9 +32,23 @@ jest.mock("@/routes/index", () => ({
   })),
 }));
 
+jest.mock(
+  "next/config",
+  () =>
+    function getConfig() {
+      return {
+        publicRuntimeConfig: {
+          version: "1.0.0",
+        },
+      };
+    }
+);
+
 describe("top page", () => {
   it("render", async () => {
+    const spy = jest.spyOn(console, "log").mockReturnValue(undefined);
     const { container } = render(<Page />);
+    expect(spy).toHaveBeenCalledWith("version: 1.0.0");
     expect(await screen.findByTestId("mocked-head")).toBeInTheDocument();
     expect(container.querySelectorAll("ul li img")).toHaveLength(20);
     expect(await screen.findAllByTestId("mocked-link")).toHaveLength(2);
