@@ -3,8 +3,12 @@ import Link from "next/link";
 import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 export default function Page(): ReactElement {
+  console.log(`version: ${publicRuntimeConfig.version as string}`);
   return (
     <>
       <DynamicHead />
