@@ -1,3 +1,28 @@
+.loading {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading .spinner {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 6px;
+  background: var(--default-color);
+  opacity: 0.4;
+  animation: 3s spinner infinite linear;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .profile {
   display: grid;
   grid-template:

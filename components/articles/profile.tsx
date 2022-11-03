@@ -39,7 +39,11 @@ interface ProfileData {
 export default function Profile(): ReactElement {
   const { loading, error, data } = useQuery(QUERY_PROFILE);
   if (loading) {
-    return <div>loading</div>;
+    return (
+      <div className={styles.loading}>
+        <span className={styles.spinner}></span>
+      </div>
+    );
   }
   if (error) {
     return <div>error</div>;
