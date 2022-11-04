@@ -24,7 +24,7 @@ export function Badges({ badges, ...props }): ReactElement {
   );
 }
 
-function Story({ story }): ReactElement {
+export function Story({ story }): ReactElement {
   return (
     <div className={styles.story}>
       <div className={styles.storyTitle}>{story.title}</div>
