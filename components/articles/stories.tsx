@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import styles from "@/styles/components/articles/stories.module.css";
 
-const QUERY_STORIES = gql(`
+export const QUERY_STORIES = gql(`
   query stories {
     stories {
       title
@@ -14,9 +14,9 @@ const QUERY_STORIES = gql(`
   }
   `);
 
-function Badges({ badges }): ReactElement {
+export function Badges({ badges, ...props }): ReactElement {
   return (
-    <ul className={styles.storyBadges}>
+    <ul {...props} className={styles.storyBadges}>
       {badges.map((badge, index) => (
         <li key={index}>{`#${badge as string}`}</li>
       ))}
@@ -24,7 +24,7 @@ function Badges({ badges }): ReactElement {
   );
 }
 
-function Story({ story }): ReactElement {
+export function Story({ story }): ReactElement {
   return (
     <div className={styles.story}>
       <div className={styles.storyTitle}>{story.title}</div>
