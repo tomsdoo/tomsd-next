@@ -5,8 +5,3 @@
   padding: 2rem;
   overflow-y: auto;
 }
-
-.list {
-  display: grid;
-  grid-gap: 2rem;
-}

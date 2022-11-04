@@ -1,0 +1,58 @@
+.area {
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.list {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.item {
+  display: grid;
+}
+
+.story {
+  display: grid;
+  grid-gap: 0.5em;
+}
+
+.storyTitle {
+  font-size: 1.2em;
+}
+
+.storyDescription {
+  font-size: 1em;
+}
+
+.storyIssue {
+  position: relative;
+  font-size: 0.8em;
+  padding: 1em 0 0;
+}
+.storyIssue::before {
+  content: "issue";
+  position: absolute;
+  top: 0;
+  font-size: 8px;
+}
+
+.storySolution {
+  position: relative;
+  font-size: 0.8em;
+  padding: 1em 0 0;
+}
+.storySolution::before {
+  content: "solution";
+  position: absolute;
+  top: 0;
+  font-size: 8px;
+}
+
+.storyBadges {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  gap: 1em;
+}
