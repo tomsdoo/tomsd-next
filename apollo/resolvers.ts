@@ -1,5 +1,11 @@
 import { Config } from "apollo-server-micro";
-import { Artifacts, Histories, Profile, Skills } from "@/modules/contentful";
+import {
+  Artifacts,
+  Histories,
+  Profile,
+  Skills,
+  Stories,
+} from "@/modules/contentful";
 
 const db = {
   articles: [
@@ -24,6 +30,7 @@ export const resolvers: Config["resolvers"] = {
     artifacts: async () => await new Artifacts().get(),
     profile: async () => await new Profile().get(),
     skills: async () => await new Skills().get(),
+    stories: async () => await new Stories().get(),
     histories: async () => await new Histories().get(),
   },
 };
