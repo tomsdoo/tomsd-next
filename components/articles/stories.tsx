@@ -14,9 +14,9 @@ const QUERY_STORIES = gql(`
   }
   `);
 
-function Badges({ badges }): ReactElement {
+export function Badges({ badges, ...props }): ReactElement {
   return (
-    <ul className={styles.storyBadges}>
+    <ul {...props} className={styles.storyBadges}>
       {badges.map((badge, index) => (
         <li key={index}>{`#${badge as string}`}</li>
       ))}
