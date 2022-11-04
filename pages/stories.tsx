@@ -37,10 +37,7 @@ function Stories(): ReactElement {
   if (error) {
     return;
   }
-  console.log(data);
   const stories = data.stories;
-
-  console.log(stories);
 
   return (
     <ul>
