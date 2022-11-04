@@ -49,4 +49,16 @@ export const routes = [
       description: "Links about tomsd indicate that his artifacts are there.",
     },
   },
+  {
+    href: "/stories",
+    pathRegexp: /^\/stories\/?$/,
+    headerLink: {
+      title: "stories",
+    },
+    meta: {
+      title: `stories | ${siteName}`,
+      description:
+        "stories about activities of tomsd are there to be read by you.",
+    },
+  },
 ];

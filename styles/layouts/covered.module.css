@@ -52,8 +52,9 @@
 .links {
   grid-area: links;
   display: grid;
-  grid-template-columns: repeat(4, max-content);
+  grid-template-columns: repeat(5, max-content);
   grid-gap: 0.5rem;
+  overflow-x: auto;
 }
 
 .linkItem {
@@ -85,4 +86,10 @@
 
 .innerMain {
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .innerHeader {
+    grid-template: "logo links" max-content / max-content 1fr;
+  }
 }

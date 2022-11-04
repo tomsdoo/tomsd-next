@@ -54,6 +54,14 @@ export const typeDefs: Config["typeDefs"] = gql(`
     orderScore: Int
   }
 
+  type Story {
+    title: String
+    description: String
+    issue: String
+    solution: String
+    badges: [String]
+  }
+
   type Query {
     article(id: Int): Article
     articles: [Article]
@@ -61,5 +69,6 @@ export const typeDefs: Config["typeDefs"] = gql(`
     skills: [Skill]
     histories: [History]
     artifacts: [Artifact]
+    stories: [Story]
   }
 `);
