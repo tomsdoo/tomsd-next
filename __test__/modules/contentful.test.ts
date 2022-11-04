@@ -5,6 +5,7 @@ import {
   Histories,
   Profile,
   Skills,
+  Stories,
 } from "@/modules/contentful";
 
 describe("contentful", () => {
@@ -166,6 +167,32 @@ describe("contentful", () => {
       );
       expect(spy).toHaveBeenCalledWith({
         content_type: "artifact",
+        limit: 1000,
+      });
+    });
+  });
+
+  describe("Stories", () => {
+    it("get()", async () => {
+      const mockedItems = [1, 2].map((i) => ({
+        fields: {
+          title: `title ${i}`,
+          description: `description ${i}`,
+          issue: `issue ${i}`,
+          solution: `solution ${i}`,
+          hadges: [`badge ${i}`],
+        },
+      }));
+
+      const spy = jest
+        .spyOn(ContentfulClient.prototype, "getEntries")
+        // @ts-expect-error
+        .mockReturnValue(Promise.resolve({ items: mockedItems }));
+      expect(await new Stories().get()).toEqual(
+        mockedItems.map(({ fields }) => fields)
+      );
+      expect(spy).toHaveBeenCalledWith({
+        content_type: "story",
         limit: 1000,
       });
     });
