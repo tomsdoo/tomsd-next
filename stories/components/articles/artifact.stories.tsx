@@ -10,7 +10,9 @@ export default {
 } as ComponentMeta<typeof Artifact>;
 
 const Template: ComponentStory<typeof Artifact> = (args) => (
-  <Artifact {...args} />
+  <div style={{ width: "min(20rem, calc(100vw - 2rem))" }}>
+    <Artifact {...args} />
+  </div>
 );
 
 export const Default: ComponentStory<typeof Artifact> = Template.bind({});
