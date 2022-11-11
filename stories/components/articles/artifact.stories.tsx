@@ -24,4 +24,4 @@ Default.args = {
     image: "https://picsum.photos/200",
   },
 };
-Default.storyName = "defalut";
+Default.storyName = "default";
