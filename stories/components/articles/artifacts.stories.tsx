@@ -32,9 +32,9 @@ export default {
   component: Artifacts,
 } as ComponentMeta<typeof Artifacts>;
 
-const Template: ComponentStory<typeof Artifacts> = (args) => (
+const Template: ComponentStory<typeof Artifacts> = () => (
   <MockedProvider mocks={mocks} addTypename={false}>
-    <Artifacts {...args} />
+    <Artifacts />
   </MockedProvider>
 );
 
