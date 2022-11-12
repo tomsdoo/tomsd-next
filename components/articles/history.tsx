@@ -94,10 +94,14 @@ export default function History(): ReactElement {
   if (error) {
     return;
   }
+
+  const histories = data.histories
+    .slice()
+    .sort((a, b) => (a.start > b.start ? -1 : 1));
   return (
     <div className={historyStyles.area}>
       <ol className={historyStyles.list}>
-        {data.histories.map((history, index) => (
+        {histories.map((history, index) => (
           <li key={index} className={historyStyles.item}>
             <HistoryItem history={history} />
           </li>
