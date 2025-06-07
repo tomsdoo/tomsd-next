@@ -40,7 +40,7 @@
     "apollo-server-micro": "3.13.0",
     "contentful": "9.3.7",
     "date-fns": "2.30.0",
-    "destyle.css": "3.0.2",
+    "destyle.css": "4.0.1",
     "graphql": "16.11.0",
     "micro": "9.4.1",
     "micro-cors": "0.1.1",
