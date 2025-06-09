@@ -1,7 +1,12 @@
-import { createClient, ContentfulClientApi, EntryCollection } from "contentful";
+import {
+  createClient,
+  ContentfulClientApi,
+  EntryCollection,
+  EntrySkeletonType,
+} from "contentful";
 
 export class ContentfulClient {
-  protected client: ContentfulClientApi;
+  protected client: ContentfulClientApi<undefined>;
   constructor() {
     this.client = createClient({
       space: process.env.CONTENTFUL_SPACE_ID,
@@ -10,19 +15,26 @@ export class ContentfulClient {
     });
   }
 
-  public async getEntries<T = unknown>(
+  public async getEntries(
     query?: any
-  ): Promise<EntryCollection<T>> {
-    return await this.client.getEntries<T>(query);
+  ): Promise<EntryCollection<EntrySkeletonType>> {
+    return await this.client.getEntries<EntrySkeletonType, string>(query);
+  }
+
+  public async getEntryItems<T = unknown>(query?: any): Promise<T[]> {
+    return await this.getEntries(query).then(({ items }) =>
+      items.map((item) => item.fields as T)
+    );
   }
 }
 
 export class Profile extends ContentfulClient {
   public async get(): Promise<object> {
-    return await this.getEntries<{ json: object }>({
+    const items = await this.getEntryItems<{ json: object }>({
       content_type: "anydoc",
       "fields.name": "tomsd-page-profile",
-    }).then(({ items }) => items?.[0]?.fields?.json);
+    });
+    return items?.[0]?.json ?? {};
   }
 }
 
@@ -30,7 +42,7 @@ export class Skills extends ContentfulClient {
   public async get(): Promise<
     Array<{ title: string; years: number; description: string; web: boolean }>
   > {
-    return await this.getEntries<{
+    return await this.getEntryItems<{
       title: string;
       years: number;
       description: string;
@@ -38,7 +50,7 @@ export class Skills extends ContentfulClient {
     }>({
       content_type: "skills",
       limit: 1000,
-    }).then(({ items }) => items.map(({ fields }) => fields));
+    });
   }
 }
 
@@ -53,7 +65,7 @@ export class Histories extends ContentfulClient {
       badges: string[];
     }>
   > {
-    return await this.getEntries<{
+    return await this.getEntryItems<{
       title: string;
       start: string;
       end: string;
@@ -63,7 +75,7 @@ export class Histories extends ContentfulClient {
     }>({
       content_type: "history",
       limit: 1000,
-    }).then(({ items }) => items.map(({ fields }) => fields));
+    });
   }
 }
 
@@ -77,7 +89,7 @@ export class Artifacts extends ContentfulClient {
       orderScore: number;
     }>
   > {
-    return await this.getEntries<{
+    return await this.getEntryItems<{
       title: string;
       link: string;
       description: string;
@@ -86,7 +98,7 @@ export class Artifacts extends ContentfulClient {
     }>({
       content_type: "artifact",
       limit: 1000,
-    }).then(({ items }) => items.map(({ fields }) => fields));
+    });
   }
 }
 
@@ -100,7 +112,7 @@ export class Stories extends ContentfulClient {
       badges: string[];
     }>
   > {
-    return await this.getEntries<{
+    return await this.getEntryItems<{
       title: string;
       description: string;
       issue: string;
@@ -109,6 +121,6 @@ export class Stories extends ContentfulClient {
     }>({
       content_type: "story",
       limit: 1000,
-    }).then(({ items }) => items.map(({ fields }) => fields));
+    });
   }
 }
