@@ -26,7 +26,7 @@ describe("contentful", () => {
             skip: 0,
             limit: 0,
             items: [],
-          })
+          }),
         );
       const client = new ContentfulClient();
       await client.getEntries({
@@ -52,7 +52,7 @@ describe("contentful", () => {
                 },
               },
             ],
-          })
+          }),
         );
       expect(await new Profile().get()).toEqual({ name: "test" });
       expect(spy).toHaveBeenCalledWith({
@@ -88,10 +88,10 @@ describe("contentful", () => {
         .mockReturnValue(
           Promise.resolve({
             items: mockedSkills,
-          })
+          }),
         );
       expect(await new Skills().get()).toEqual(
-        mockedSkills.map(({ fields }) => fields)
+        mockedSkills.map(({ fields }) => fields),
       );
       expect(spy).toHaveBeenCalledWith({
         content_type: "skills",
@@ -130,10 +130,10 @@ describe("contentful", () => {
         .mockReturnValue(
           Promise.resolve({
             items: mockedHistories,
-          })
+          }),
         );
       expect(await new Histories().get()).toEqual(
-        mockedHistories.map(({ fields }) => fields)
+        mockedHistories.map(({ fields }) => fields),
       );
       expect(spy).toHaveBeenCalledWith({
         content_type: "history",
@@ -160,10 +160,10 @@ describe("contentful", () => {
         .mockReturnValue(
           Promise.resolve({
             items: mockedItems,
-          })
+          }),
         );
       expect(await new Artifacts().get()).toEqual(
-        mockedItems.map(({ fields }) => fields)
+        mockedItems.map(({ fields }) => fields),
       );
       expect(spy).toHaveBeenCalledWith({
         content_type: "artifact",
@@ -189,7 +189,7 @@ describe("contentful", () => {
         // @ts-expect-error
         .mockReturnValue(Promise.resolve({ items: mockedItems }));
       expect(await new Stories().get()).toEqual(
-        mockedItems.map(({ fields }) => fields)
+        mockedItems.map(({ fields }) => fields),
       );
       expect(spy).toHaveBeenCalledWith({
         content_type: "story",

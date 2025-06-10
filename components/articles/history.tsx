@@ -31,7 +31,7 @@ function getTerm({ start, end }): {
   return {
     ...term,
     text: [term.years > 0 ? `${term.years}年` : "", `${term.months}月`].join(
-      " "
+      " ",
     ),
   };
 }
