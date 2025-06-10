@@ -25,7 +25,7 @@ export default function Artifacts(): ReactElement {
   }
 
   const artifacts = [...data.artifacts].sort(
-    (a, b) => b.orderScore - a.orderScore
+    (a, b) => b.orderScore - a.orderScore,
   );
 
   return (

@@ -19,7 +19,7 @@ export default function DynamicHead(): ReactElement {
 
   const router = useRouter();
   const displayingHead = headCandidates.find(({ pathRegexp }) =>
-    pathRegexp.test(router.pathname)
+    pathRegexp.test(router.pathname),
   );
 
   return (
