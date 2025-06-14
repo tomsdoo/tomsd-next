@@ -27,23 +27,22 @@ export default function Layout({
         <header className={`${styles.header} ${frostedStyles.frostedALittle}`}>
           <div className={`${styles.innerHeader} ${styles.widthCoordinated}`}>
             <div className={styles.logo}>
-              <Link href="/">
-                <a className={styles.link}>tomsd</a>
+              <Link href="/" className={styles.link}>
+                tomsd
               </Link>
             </div>
             <ul className={styles.links}>
               {routes.map((route, index) => (
                 <li key={index} className={styles.linkItem}>
-                  <Link href={route.href}>
-                    <a
-                      className={`${styles.link} ${
-                        router.pathname.startsWith(route.href)
-                          ? styles.active
-                          : ""
-                      }`}
-                    >
-                      {route.headerLink.title}
-                    </a>
+                  <Link
+                    href={route.href}
+                    className={`${styles.link} ${
+                      router.pathname.startsWith(route.href)
+                        ? styles.active
+                        : ""
+                    }`}
+                  >
+                    {route.headerLink.title}
                   </Link>
                 </li>
               ))}
