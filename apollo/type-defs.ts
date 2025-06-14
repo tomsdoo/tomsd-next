@@ -1,6 +1,4 @@
-import { gql, Config } from "apollo-server-micro";
-
-export const typeDefs: Config["typeDefs"] = gql(`
+export const typeDefs = `#graphql
   type Article {
     id: Int
     title: String
@@ -71,4 +69,4 @@ export const typeDefs: Config["typeDefs"] = gql(`
     artifacts: [Artifact]
     stories: [Story]
   }
-`);
+`;

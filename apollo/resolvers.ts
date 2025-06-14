@@ -1,4 +1,3 @@
-import { Config } from "apollo-server-micro";
 import {
   Artifacts,
   Histories,
@@ -22,7 +21,7 @@ const db = {
   ],
 };
 
-export const resolvers: Config["resolvers"] = {
+export const resolvers = {
   Query: {
     article: (_, { id }: { id: number }) =>
       db.articles.find((a) => a.id === id),
