@@ -106,6 +106,10 @@
     "@testing-library/react": {
       "react": "^18.0.0 || ^19.0.0",
       "react-dom": "^18.0.0 || ^19.0.0"
+    },
+    "@types/react-dom": {
+      "@types/react": "^18.0.0 || ^19.0.0",
+      "react": "^18.0.0 || ^19.0.0"
     }
   }
 }
