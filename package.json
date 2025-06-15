@@ -19,8 +19,8 @@
     "lint": "next lint",
     "prepare": "husky",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
     "date-fns": "4.1.0",
     "destyle.css": "4.0.1",
     "graphql": "16.11.0",
-    "next": "12.3.7",
+    "next": "14.2.30",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-transition-group": "4.4.5"
@@ -53,13 +53,13 @@
     "@babel/preset-env": "7.27.2",
     "@babel/preset-react": "7.27.1",
     "@babel/preset-typescript": "7.27.1",
-    "@storybook/addon-actions": "6.5.16",
-    "@storybook/addon-essentials": "6.5.16",
-    "@storybook/addon-interactions": "6.5.16",
-    "@storybook/addon-links": "6.5.16",
-    "@storybook/builder-webpack5": "6.5.16",
-    "@storybook/manager-webpack5": "6.5.16",
-    "@storybook/react": "6.5.16",
+    "@storybook/addon-actions": "7.6.20",
+    "@storybook/addon-essentials": "7.6.20",
+    "@storybook/addon-interactions": "7.6.20",
+    "@storybook/addon-links": "7.6.20",
+    "@storybook/addon-mdx-gfm": "^7.6.20",
+    "@storybook/nextjs": "^7.6.20",
+    "@storybook/react": "7.6.20",
     "@storybook/testing-library": "0.0.13",
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "13.4.0",
@@ -78,6 +78,7 @@
     "jsdom": "20.0.3",
     "lint-staged": "13.3.0",
     "prettier": "3.5.3",
+    "storybook": "7.6.20",
     "tsconfig-paths-webpack-plugin": "4.2.0",
     "typescript": "4.8.4"
   }

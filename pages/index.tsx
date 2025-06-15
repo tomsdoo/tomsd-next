@@ -30,15 +30,13 @@ export default function Page(): ReactElement {
           <ul className={styles.menuList}>
             {routes.map((route, index) => (
               <li key={index} className={styles.menuItem}>
-                <Link href={route.href}>
-                  <a className={styles.menuLink}>
-                    <span className={`material-icons ${styles.menuIcon}`}>
-                      snowing
-                    </span>
-                    <span className={styles.menuText}>
-                      {route.headerLink.title}
-                    </span>
-                  </a>
+                <Link href={route.href} className={styles.menuLink}>
+                  <span className={`material-icons ${styles.menuIcon}`}>
+                    snowing
+                  </span>
+                  <span className={styles.menuText}>
+                    {route.headerLink.title}
+                  </span>
                 </Link>
               </li>
             ))}
