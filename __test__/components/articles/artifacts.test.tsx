@@ -15,7 +15,7 @@ jest.mock(
       return (
         <mocked-artifact data-testid="mocked-artifact">test</mocked-artifact>
       );
-    }
+    },
 );
 
 describe("Artifacts component", () => {
@@ -46,9 +46,9 @@ describe("Artifacts component", () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Artifacts />
-      </MockedProvider>
+      </MockedProvider>,
     );
-    expect(await screen.findByText("loading")).toBeInTheDocument();
+    expect(await screen.findByText("loading")).toBeInstanceOf(HTMLDivElement);
     expect(await screen.findByTestId("mocked-artifact")).toBeInTheDocument();
   });
 });
