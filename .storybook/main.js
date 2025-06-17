@@ -11,6 +11,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-mdx-gfm",
+    "@chromatic-com/storybook",
   ],
 
   webpackFinal: async (config, { configType }) => {
