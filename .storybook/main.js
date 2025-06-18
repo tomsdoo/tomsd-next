@@ -8,10 +8,8 @@ module.exports = {
 
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-mdx-gfm",
     "@chromatic-com/storybook",
+    "@storybook/addon-docs",
   ],
 
   webpackFinal: async (config, { configType }) => {

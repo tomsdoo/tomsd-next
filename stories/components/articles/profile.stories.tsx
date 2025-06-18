@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/nextjs";
 
 import Profile, { QUERY_PROFILE } from "@/components/articles/profile";
 import { MockedProvider } from "@apollo/client/testing";

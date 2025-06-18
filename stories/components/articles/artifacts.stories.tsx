@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/nextjs";
 
 import Artifacts, { QUERY_ARTIFACTS } from "@/components/articles/artifacts";
 import { MockedProvider } from "@apollo/client/testing";
