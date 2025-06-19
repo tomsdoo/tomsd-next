@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/nextjs";
 
 import History, { QUERY_HISTORIES } from "@/components/articles/history";
 import { MockedProvider } from "@apollo/client/testing";
@@ -30,22 +30,22 @@ const mocks = [
 export default {
   title: "components/articles/History",
   component: History,
-} as ComponentMeta<typeof History>;
+} as Meta<typeof History>;
 
-const Template: ComponentStory<typeof History> = () => (
-  <MockedProvider mocks={mocks} addTypename={false}>
-    <div
-      style={{
-        width: "min(calc(100vw - 4rem), 80vw)",
-        padding: "2rem",
-        boxShadow: "inset 0 0 3px",
-      }}
-    >
-      <History />
-    </div>
-  </MockedProvider>
-);
-
-export const Default: ComponentStory<typeof History> = Template.bind({});
-Default.args = {};
-Default.storyName = "default";
+export const Default: StoryObj<typeof History> = {
+  args: {},
+  storyName: "default",
+  render: () => (
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <div
+        style={{
+          width: "min(calc(100vw - 4rem), 80vw)",
+          padding: "2rem",
+          boxShadow: "inset 0 0 3px",
+        }}
+      >
+        <History />
+      </div>
+    </MockedProvider>
+  ),
+};

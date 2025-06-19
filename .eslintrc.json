@@ -2,6 +2,7 @@
   "extends": [
     "next/core-web-vitals",
     "standard-with-typescript"
+    // "plugin:storybook/recommended"
   ],
   "parserOptions": {
     "project": "./tsconfig.json"

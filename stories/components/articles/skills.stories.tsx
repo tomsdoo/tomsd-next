@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Skills, { QUERY_SKILLS } from "@/components/articles/skills";
 import { MockedProvider } from "@apollo/client/testing";
@@ -29,14 +29,14 @@ const mocks = [
 export default {
   title: "components/articles/Skills",
   component: Skills,
-} as ComponentMeta<typeof Skills>;
+} as Meta<typeof Skills>;
 
-const Template: ComponentStory<typeof Skills> = () => (
-  <MockedProvider mocks={mocks} addTypename={false}>
-    <Skills />
-  </MockedProvider>
-);
-
-export const Default: ComponentStory<typeof Skills> = Template.bind({});
-Default.args = {};
-Default.storyName = "default";
+export const Default: StoryObj<typeof Skills> = {
+  args: {},
+  storyName: "default",
+  render: () => (
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <Skills />
+    </MockedProvider>
+  ),
+};
