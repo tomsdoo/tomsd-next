@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/nextjs";
+import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Skill from "@/components/articles/skill";
 
@@ -7,21 +7,21 @@ import Skill from "@/components/articles/skill";
 export default {
   title: "components/articles/Skill",
   component: Skill,
-} as ComponentMeta<typeof Skill>;
+} as Meta<typeof Skill>;
 
-const Template: ComponentStory<typeof Skill> = (args) => (
-  <div style={{ width: "min(20rem, calc(100vw - 2rem))" }}>
-    <Skill {...args} />
-  </div>
-);
-
-export const Default: ComponentStory<typeof Skill> = Template.bind({});
-Default.args = {
-  skill: {
-    years: 10,
-    title: "JavaScript",
-    description:
-      "It's a description with some sentences. Yes, this is a test line. And this is the description of the skill.",
+export const Default: StoryObj<typeof Skill> = {
+  args: {
+    skill: {
+      years: 10,
+      title: "JavaScript",
+      description:
+        "It's a description with some sentences. Yes, this is a test line. And this is the description of the skill.",
+    },
   },
+  storyName: "default",
+  render: (args) => (
+    <div style={{ width: "min(20rem, calc(100vw - 2rem))" }}>
+      <Skill {...args} />
+    </div>
+  ),
 };
-Default.storyName = "default";

@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/nextjs";
+import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Profile, { QUERY_PROFILE } from "@/components/articles/profile";
 import { MockedProvider } from "@apollo/client/testing";
@@ -37,22 +37,22 @@ const mocks = [
 export default {
   title: "components/articles/Profile",
   component: Profile,
-} as ComponentMeta<typeof Profile>;
+} as Meta<typeof Profile>;
 
-const Template: ComponentStory<typeof Profile> = () => (
-  <MockedProvider mocks={mocks} addTypename={false}>
-    <div
-      style={{
-        width: "min(calc(100vw - 4rem), 80vw)",
-        padding: "2rem",
-        boxShadow: "inset 0 0 3px",
-      }}
-    >
-      <Profile />
-    </div>
-  </MockedProvider>
-);
-
-export const Default: ComponentStory<typeof Profile> = Template.bind({});
-Default.args = {};
-Default.storyName = "default";
+export const Default: StoryObj<typeof Profile> = {
+  args: {},
+  storyName: "default",
+  render: () => (
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <div
+        style={{
+          width: "min(calc(100vw - 4rem), 80vw)",
+          padding: "2rem",
+          boxShadow: "inset 0 0 3px",
+        }}
+      >
+        <Profile />
+      </div>
+    </MockedProvider>
+  ),
+};
