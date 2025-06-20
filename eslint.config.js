@@ -22,6 +22,9 @@ const eslintConfig = [
       "@typescript-eslint/prefer-nullish-coalescing": "off"
     },
   }),
+  ...compat.config({
+    extends: ["plugin:storybook/recommended"],
+  }),
 ];
 
 export default eslintConfig;
