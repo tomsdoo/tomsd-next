@@ -64,7 +64,7 @@
     "@types/react": "19.1.8",
     "babel-jest": "30.0.2",
     "babel-loader": "10.0.0",
-    "chromatic": "6.24.1",
+    "chromatic": "13.0.1",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "eslint-config-standard-with-typescript": "23.0.0",
