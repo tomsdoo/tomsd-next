@@ -23,16 +23,19 @@ function getTerm({ start, end }): {
 } {
   const localStart = new Date(start);
   const localEnd = (end && new Date(end)) ?? new Date();
-  const totalMonths = differenceInMonths(localEnd, localStart);
+  const totalMonths = differenceInMonths(localEnd, localStart) + 1;
   const term = {
     years: Math.floor(totalMonths / 12),
     months: totalMonths % 12,
   };
   return {
     ...term,
-    text: [term.years > 0 ? `${term.years}年` : "", `${term.months}月`].join(
-      " ",
-    ),
+    text: [
+      term.years > 0 ? `${term.years}年` : "",
+      term.months > 0 ? `${term.months}ヶ月` : "",
+    ]
+      .filter(Boolean)
+      .join(" "),
   };
 }
 function formatYM(date?: string): string {
