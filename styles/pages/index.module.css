@@ -47,16 +47,6 @@
   text-align: center;
 }
 
-.menuList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 2rem;
-  overflow-y: auto;
-}
-
-.menuItem {
-}
-
 .photoList {
   display: grid;
   width: min(500px, calc(100vw - 4rem));
