@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
-import Link from "next/link";
 import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
+import RouteMenuItem from "@/components/route-menu/item";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -30,14 +30,7 @@ export default function Page(): ReactElement {
           <ul className={styles.menuList}>
             {routes.map((route, index) => (
               <li key={index} className={styles.menuItem}>
-                <Link href={route.href} className={styles.menuLink}>
-                  <span className={`material-icons ${styles.menuIcon}`}>
-                    snowing
-                  </span>
-                  <span className={styles.menuText}>
-                    {route.headerLink.title}
-                  </span>
-                </Link>
+                <RouteMenuItem route={route}></RouteMenuItem>
               </li>
             ))}
           </ul>

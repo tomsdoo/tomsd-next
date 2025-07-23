@@ -1,0 +1,29 @@
+.menuLink {
+  display: grid;
+  grid-template:
+    "icon" max-content
+    "text" max-content / 1fr;
+  justify-content: center;
+  grid-gap: 1rem;
+  font-size: 2rem;
+  text-shadow: 0 0 3px;
+  padding: 2rem;
+  box-shadow: inset 0 0 3px;
+  border-radius: 10px;
+}
+.menuLink:hover {
+  text-shadow:
+    0 0 3px,
+    0 0 5px;
+  box-shadow: inset 0 0 6px;
+}
+
+.menuIcon {
+  grid-area: icon;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+.menuText {
+  grid-area: text;
+  text-align: center;
+}
