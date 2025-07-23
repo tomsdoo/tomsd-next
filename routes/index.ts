@@ -1,9 +1,21 @@
 const siteName = "tomsd";
 
+export type Route = {
+  href: string;
+  pathRegexp: RegExp;
+  headerLink: {
+    title: string;
+  };
+  meta: {
+    title: string;
+    description: string;
+  };
+};
+
 export const siteIcon =
   "https://images.ctfassets.net/92wsih6ine68/7bRo9w8rDXNtNwM3JjITrn/be2bc1d8263f05900a1fcb4ead1d12a3/nana.png";
 
-export const routes = [
+export const routes: Route[] = [
   {
     href: "/profile",
     pathRegexp: /^\/profile\/?$/,
