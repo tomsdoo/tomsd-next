@@ -33,27 +33,3 @@
   width: min(500px, calc(100vw - 4rem));
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
 }
-
-.photo {
-  width: 100%;
-  animation: 1s photo-color linear both running;
-}
-
-@keyframes photo-color {
-  0% {
-  }
-  50% {
-    filter: saturate(0);
-  }
-  75% {
-    transform: rotateY(180deg);
-  }
-  99% {
-    transform: rotateY(360deg) scale(1);
-    filter: saturate(0.7);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-}

@@ -1,0 +1,23 @@
+.photo {
+  width: 100%;
+  animation: 1s photo-color linear both running;
+}
+
+@keyframes photo-color {
+  0% {
+  }
+  50% {
+    filter: saturate(0);
+  }
+  75% {
+    transform: rotateY(180deg);
+  }
+  99% {
+    transform: rotateY(360deg) scale(1);
+    filter: saturate(0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

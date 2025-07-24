@@ -4,6 +4,7 @@ import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
 import RouteMenuForm from "@/components/home/route-menu/form";
+import RotatingImage from "@/components/home/images/rotating-image";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -16,12 +17,10 @@ export default function Page(): ReactElement {
         <ul className={styles.photoList}>
           {[...Array(20).keys()].map((i) => (
             <li key={i}>
-              <img
-                style={{ animationDelay: `${i * 50}ms` }}
-                className={styles.photo}
+              <RotatingImage
                 src={`https://picsum.photos/${50 + i}`}
-                alt=""
-              />
+                animationDelay={i * 50}
+              ></RotatingImage>
             </li>
           ))}
         </ul>
