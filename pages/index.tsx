@@ -3,7 +3,7 @@ import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
-import RouteMenuList from "@/components/home/route-menu/list";
+import RouteMenuForm from "@/components/home/route-menu/form";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -25,10 +25,7 @@ export default function Page(): ReactElement {
             </li>
           ))}
         </ul>
-        <div className={styles.form}>
-          <h2 className={styles.formHeading}>tomsd</h2>
-          <RouteMenuList routes={routes}></RouteMenuList>
-        </div>
+        <RouteMenuForm className={styles.form} routes={routes}></RouteMenuForm>
       </div>
     </>
   );
