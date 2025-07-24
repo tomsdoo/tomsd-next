@@ -4,7 +4,7 @@
 import { describe, it, expect } from "@jest/globals";
 import "@testing-library/jest-dom";
 import React from "react";
-import RouteMenuList from "@/components/route-menu/list";
+import RouteMenuList from "@/components/home/route-menu/list";
 import { render, screen } from "@testing-library/react";
 
 describe("RouteMenuList component", () => {

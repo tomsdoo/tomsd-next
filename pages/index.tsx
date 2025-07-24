@@ -3,7 +3,7 @@ import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
-import RouteMenuList from "@/components/route-menu/list";
+import RouteMenuList from "@/components/home/route-menu/list";
 
 const { publicRuntimeConfig } = getConfig();
 
