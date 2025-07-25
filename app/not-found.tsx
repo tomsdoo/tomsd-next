@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactElement } from "react";
 import DynamicHead from "@/components/heads/head";
 import Layout from "@/layouts/covered";
