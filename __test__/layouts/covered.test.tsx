@@ -9,7 +9,7 @@ import { render, screen } from "@testing-library/react";
 
 jest.mock("react", () => {
   return {
-    // @ts-expect-error
+    // @ts-expect-error type coordination
     ...jest.requireActual("react"),
     useRef: () => undefined,
   };
@@ -22,36 +22,23 @@ jest.mock("react-transition-group", () => ({
 }));
 
 jest.mock(
-  "next/link",
+  "@/components/layouts/covered/header",
   () =>
-    function Link({ children }) {
-      return <div data-testid="test-next-link">{children}</div>;
-    }
-);
-
-jest.mock("next/router", () => ({
-  useRouter: () => ({ pathname: "/test1" }),
-}));
-
-jest.mock("@/routes/index", () => ({
-  routes: [1, 2].map((i) => ({
-    href: `/test${i}`,
-    headerLink: {
-      title: `test title ${i}`,
+    function Header() {
+      return <div data-testid="mocked-header"></div>;
     },
-  })),
-}));
+);
 
 describe("Layout", () => {
   it("render", async () => {
     render(
       <Layout loaded={true}>
         <div>test</div>
-      </Layout>
+      </Layout>,
     );
-    expect(await screen.findAllByTestId("test-next-link")).toHaveLength(3);
+    expect(await screen.findAllByTestId("mocked-header")).toHaveLength(1);
     expect(
-      await screen.findByTestId("css-transition-test")
+      await screen.findByTestId("css-transition-test"),
     ).toBeInTheDocument();
   });
 });
