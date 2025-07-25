@@ -1,5 +1,7 @@
+"use client";
+
 import { ReactElement } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Head from "next/head";
 import { routes, siteIcon } from "@/routes/index";
 
@@ -17,9 +19,9 @@ export default function DynamicHead(): ReactElement {
     },
   ];
 
-  const router = useRouter();
+  const pathname = usePathname();
   const displayingHead = headCandidates.find(({ pathRegexp }) =>
-    pathRegexp.test(router.pathname),
+    pathRegexp.test(pathname ?? ""),
   );
 
   return (
@@ -29,8 +31,8 @@ export default function DynamicHead(): ReactElement {
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta charSet="UTF-8" />
-      <meta name="description" content={displayingHead.meta.description} />
-      <title>{displayingHead.meta.title}</title>
+      <meta name="description" content={displayingHead?.meta.description} />
+      <title>{displayingHead?.meta.title}</title>
       <link rel="icon" href={siteIcon} />
     </Head>
   );
