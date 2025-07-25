@@ -4,7 +4,7 @@ import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
 import RouteMenuForm from "@/components/home/route-menu/form";
-import RotatingImage from "@/components/home/images/rotating-image";
+import PhotoList from "@/components/home/images/photo-list";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -14,16 +14,7 @@ export default function Page(): ReactElement {
     <>
       <DynamicHead />
       <div className={styles.screen}>
-        <ul className={styles.photoList}>
-          {[...Array(20).keys()].map((i) => (
-            <li key={i}>
-              <RotatingImage
-                src={`https://picsum.photos/${50 + i}`}
-                animationDelay={i * 50}
-              ></RotatingImage>
-            </li>
-          ))}
-        </ul>
+        <PhotoList className={styles.photoList}></PhotoList>
         <RouteMenuForm className={styles.form} routes={routes}></RouteMenuForm>
       </div>
     </>

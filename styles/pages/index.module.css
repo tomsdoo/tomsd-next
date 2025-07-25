@@ -29,7 +29,5 @@
 }
 
 .photoList {
-  display: grid;
   width: min(500px, calc(100vw - 4rem));
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
 }

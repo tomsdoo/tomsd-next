@@ -1,0 +1,4 @@
+.photoList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+}
