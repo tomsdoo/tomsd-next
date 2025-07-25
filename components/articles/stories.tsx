@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactElement } from "react";
 import { gql, useQuery } from "@apollo/client";
 import styles from "@/styles/components/articles/stories.module.css";
