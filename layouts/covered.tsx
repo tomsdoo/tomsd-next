@@ -1,11 +1,8 @@
 import { ReactElement, ReactNode, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
-import frostedStyles from "@/styles/named/frosted.module.css";
-import { routes } from "@/routes/index";
+import Header from "@/components/layouts/covered/header";
 
 interface Props {
   children: ReactNode;
@@ -18,37 +15,15 @@ export default function Layout({
   ...props
 }: Props): ReactElement {
   const nodeRef = useRef(null);
-  const router = useRouter();
 
   return (
     <div {...props}>
       <div className={styles.cover}></div>
       <div className={styles.screen}>
-        <header className={`${styles.header} ${frostedStyles.frostedALittle}`}>
-          <div className={`${styles.innerHeader} ${styles.widthCoordinated}`}>
-            <div className={styles.logo}>
-              <Link href="/" className={styles.link}>
-                tomsd
-              </Link>
-            </div>
-            <ul className={styles.links}>
-              {routes.map((route, index) => (
-                <li key={index} className={styles.linkItem}>
-                  <Link
-                    href={route.href}
-                    className={`${styles.link} ${
-                      router.pathname.startsWith(route.href)
-                        ? styles.active
-                        : ""
-                    }`}
-                  >
-                    {route.headerLink.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </header>
+        <Header
+          className={styles.header}
+          widthCoordinatedClassName={styles.widthCoordinated}
+        ></Header>
         <CSSTransition
           nodeRef={nodeRef}
           in={loaded}
