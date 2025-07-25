@@ -1,4 +1,4 @@
-import RouteMenuItem from "@/components/route-menu/item";
+import RouteMenuItem from "@/components/home/route-menu/item";
 import styles from "@/styles/components/route-menu/list.module.css";
 import type { Route } from "@/routes/index";
 

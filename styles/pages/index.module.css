@@ -21,58 +21,13 @@
 
 .form {
   position: absolute;
-  display: grid;
-  grid-gap: 4rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: 2s fade-form ease both 2s running;
   width: min(600px, 80vw);
-  overflow: hidden;
   max-height: 100%;
-  grid-template-rows: auto 1fr;
-}
-
-@keyframes fade-form {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.formHeading {
-  font-size: 3rem;
-  text-align: center;
 }
 
 .photoList {
-  display: grid;
   width: min(500px, calc(100vw - 4rem));
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-}
-
-.photo {
-  width: 100%;
-  animation: 1s photo-color linear both running;
-}
-
-@keyframes photo-color {
-  0% {
-  }
-  50% {
-    filter: saturate(0);
-  }
-  75% {
-    transform: rotateY(180deg);
-  }
-  99% {
-    transform: rotateY(360deg) scale(1);
-    filter: saturate(0.7);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
 }

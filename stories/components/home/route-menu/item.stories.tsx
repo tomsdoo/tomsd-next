@@ -1,10 +1,10 @@
 import React from "react";
 import { StoryObj, Meta } from "@storybook/nextjs";
 
-import RouteMenuItem from "@/components/route-menu/item";
+import RouteMenuItem from "@/components/home/route-menu/item";
 
 export default {
-  title: "components/route-menu/RouteMenuItem",
+  title: "components/home/route-menu/RouteMenuItem",
   component: RouteMenuItem,
 } as Meta<typeof RouteMenuItem>;
 

@@ -3,7 +3,8 @@ import DynamicHead from "@/components/heads/head";
 import { routes } from "@/routes/index";
 import styles from "@/styles/pages/index.module.css";
 import getConfig from "next/config";
-import RouteMenuList from "@/components/route-menu/list";
+import RouteMenuForm from "@/components/home/route-menu/form";
+import PhotoList from "@/components/home/images/photo-list";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -13,22 +14,8 @@ export default function Page(): ReactElement {
     <>
       <DynamicHead />
       <div className={styles.screen}>
-        <ul className={styles.photoList}>
-          {[...Array(20).keys()].map((i) => (
-            <li key={i}>
-              <img
-                style={{ animationDelay: `${i * 50}ms` }}
-                className={styles.photo}
-                src={`https://picsum.photos/${50 + i}`}
-                alt=""
-              />
-            </li>
-          ))}
-        </ul>
-        <div className={styles.form}>
-          <h2 className={styles.formHeading}>tomsd</h2>
-          <RouteMenuList routes={routes}></RouteMenuList>
-        </div>
+        <PhotoList className={styles.photoList}></PhotoList>
+        <RouteMenuForm className={styles.form} routes={routes}></RouteMenuForm>
       </div>
     </>
   );

@@ -1,0 +1,21 @@
+.form {
+  display: grid;
+  grid-gap: 4rem;
+  animation: 2s fade-form ease both 2s running;
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+}
+
+@keyframes fade-form {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.formHeading {
+  font-size: 3rem;
+  text-align: center;
+}
