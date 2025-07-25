@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactElement, DetailedHTMLProps, HTMLAttributes } from "react";
 import { gql, useQuery } from "@apollo/client";
 import historyStyles from "@/styles/components/articles/history.module.css";
