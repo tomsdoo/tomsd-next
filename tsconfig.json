@@ -24,6 +24,9 @@
       "@/apollo/*": [
         "apollo/*"
       ],
+      "@/app/*": [
+        "app/*"
+      ],
       "@/components/*": [
         "components/*"
       ],

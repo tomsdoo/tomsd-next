@@ -4,7 +4,7 @@
 import { describe, it, expect, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
 import React from "react";
-import Page from "@/pages/index";
+import Page from "@/app/page";
 import { render, screen } from "@testing-library/react";
 
 jest.mock(
@@ -12,7 +12,7 @@ jest.mock(
   () =>
     function MockedLink({ children }) {
       return <div data-testid="mocked-link">{children}</div>;
-    }
+    },
 );
 
 jest.mock(
@@ -20,7 +20,7 @@ jest.mock(
   () =>
     function MockedHead() {
       return <div data-testid="mocked-head">mocked head</div>;
-    }
+    },
 );
 
 jest.mock("@/routes/index", () => ({
@@ -41,7 +41,7 @@ jest.mock(
           version: "1.0.0",
         },
       };
-    }
+    },
 );
 
 describe("top page", () => {
