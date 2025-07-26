@@ -21,10 +21,8 @@ jest.mock("@/routes/index", () => ({
   siteIcon: "siteIcon",
 }));
 
-jest.mock("next/router", () => ({
-  useRouter: () => ({
-    pathname: "/test1",
-  }),
+jest.mock("next/navigation", () => ({
+  usePathname: () => "/test1",
 }));
 
 jest.mock(

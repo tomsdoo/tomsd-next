@@ -21,18 +21,40 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/apollo/*": ["apollo/*"],
-      "@/components/*": ["components/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/modules/*": ["modules/*"],
-      "@/routes/*": ["routes/*"],
-      "@/styles/*": ["styles/*"]
-    }
+      "@/apollo/*": [
+        "apollo/*"
+      ],
+      "@/app/*": [
+        "app/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/modules/*": [
+        "modules/*"
+      ],
+      "@/routes/*": [
+        "routes/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

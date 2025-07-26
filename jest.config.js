@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   moduleNameMapper: {
+    "^@/app/(.*)$": "<rootDir>/app/$1",
     "^@/apollo/(.*)$": "<rootDir>/apollo/$1",
     "^@/components/(.*)$": "<rootDir>/components/$1",
     "^@/layouts/(.*)$": "<rootDir>/layouts/$1",

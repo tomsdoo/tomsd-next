@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import frostedStyles from "@/styles/named/frosted.module.css";
 import { routes } from "@/routes/index";
@@ -11,7 +11,7 @@ export default function Header({
   className?: string;
   widthCoordinatedClassName: string;
 }) {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <header className={`${className} ${frostedStyles.frostedALittle}`}>
@@ -27,7 +27,7 @@ export default function Header({
               <Link
                 href={route.href}
                 className={`${styles.link} ${
-                  router.pathname.startsWith(route.href) ? styles.active : ""
+                  pathname?.startsWith(route.href) ? styles.active : ""
                 }`}
               >
                 {route.headerLink.title}

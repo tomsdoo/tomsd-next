@@ -4,7 +4,7 @@
 import { describe, it, expect, jest } from "@jest/globals";
 import "@testing-library/jest-dom";
 import React from "react";
-import Page from "@/pages/links";
+import Page from "@/app/links/page";
 import { render, screen } from "@testing-library/react";
 
 jest.mock(
@@ -12,7 +12,7 @@ jest.mock(
   () =>
     function MockedApolloProvider({ children }) {
       return <div data-testid="mocked-apollo-provider">{children}</div>;
-    }
+    },
 );
 
 jest.mock(
@@ -20,7 +20,7 @@ jest.mock(
   () =>
     function MockedHead() {
       return <div data-testid="mocked-head">mocked head</div>;
-    }
+    },
 );
 
 jest.mock(
@@ -28,7 +28,7 @@ jest.mock(
   () =>
     function MockedLayout({ children }) {
       return <div data-testid="mocked-layout">{children}</div>;
-    }
+    },
 );
 
 jest.mock(
@@ -36,14 +36,14 @@ jest.mock(
   () =>
     function MockedArtifacts() {
       return <div data-testid="mocked-artifacts">mocked artifacts</div>;
-    }
+    },
 );
 
 describe("links page", () => {
   it("render", async () => {
     render(<Page />);
     expect(
-      await screen.findByTestId("mocked-apollo-provider")
+      await screen.findByTestId("mocked-apollo-provider"),
     ).toBeInTheDocument();
     expect(await screen.findByTestId("mocked-head")).toBeInTheDocument();
     expect(await screen.findByTestId("mocked-layout")).toBeInTheDocument();
