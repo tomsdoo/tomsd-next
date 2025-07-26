@@ -87,7 +87,7 @@ export function HistoryItem({
   );
 }
 
-export default function History(): ReactElement {
+export default function History() {
   const { loading, error, data } = useQuery(QUERY_HISTORIES);
   if (loading) {
     return (

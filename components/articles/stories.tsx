@@ -38,7 +38,7 @@ export function Story({ story }): ReactElement {
   );
 }
 
-export default function Stories(): ReactElement {
+export default function Stories() {
   const { loading, error, data } = useQuery(QUERY_STORIES);
   if (loading) {
     return;
