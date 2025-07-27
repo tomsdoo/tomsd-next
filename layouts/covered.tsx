@@ -6,6 +6,12 @@ import styles from "@/styles/layouts/covered.module.css";
 import upwardStyles from "@/styles/transitions/upward.module.css";
 import Header from "@/components/layouts/covered/header";
 
+import { useSelector } from "react-redux";
+import { selectPageMap, visit } from "@/lib/slices/visited-pages";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { usePathname } from "next/navigation";
+
 interface Props {
   children: ReactNode;
   loaded: boolean;
@@ -17,6 +23,17 @@ export default function Layout({
   ...props
 }: Props): ReactElement {
   const nodeRef = useRef(null);
+
+  const visitedPages = useSelector(selectPageMap);
+  const pathname = usePathname();
+  useEffect(() => {
+    console.log({ visitedPages });
+  }, [pathname]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(visit(pathname));
+  }, [pathname]);
 
   return (
     <div {...props}>

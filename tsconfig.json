@@ -33,6 +33,9 @@
       "@/layouts/*": [
         "layouts/*"
       ],
+      "@/lib/*": [
+        "lib/*"
+      ],
       "@/modules/*": [
         "modules/*"
       ],
