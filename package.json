@@ -38,7 +38,7 @@
   "dependencies": {
     "@apollo/client": "3.13.8",
     "@apollo/server": "5.0.0",
-    "@as-integrations/next": "3.2.0",
+    "@as-integrations/next": "4.0.0",
     "@reduxjs/toolkit": "2.8.2",
     "contentful": "11.7.14",
     "date-fns": "4.1.0",
