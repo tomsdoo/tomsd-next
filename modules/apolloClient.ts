@@ -13,7 +13,7 @@ export const client = new ApolloClient({
     };
   }).concat(
     new HttpLink({
-      uri: [process.env.ORIGIN, "/api/gql"].join(""),
+      uri: [process.env.ORIGIN ?? "", "/api/gql"].join(""),
     }),
   ),
 });
