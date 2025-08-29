@@ -8,12 +8,12 @@ export const client = new ApolloClient({
     return {
       headers: {
         ...headers,
-        "x-requested-with": requestedWith,
+        "x-request-client": requestedWith,
       },
     };
   }).concat(
     new HttpLink({
       uri: [process.env.ORIGIN, "/api/gql"].join(""),
-    })
+    }),
   ),
 });
