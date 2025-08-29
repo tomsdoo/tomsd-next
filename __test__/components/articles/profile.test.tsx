@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { describe, it, expect } from "@jest/globals";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import Profile, { QUERY_PROFILE } from "@/components/articles/profile";
@@ -43,9 +43,9 @@ describe("Profile component", () => {
     ];
 
     render(
-      <MockedProvider mocks={mocks} addTypename={false}>
+      <MockedProvider mocks={mocks}>
         <Profile />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(await screen.findByText("name")).toBeInTheDocument();

@@ -1,7 +1,8 @@
 "use client";
 
 import { ReactElement } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 import styles from "@/styles/components/articles/profile.module.css";
 
 export const QUERY_PROFILE = gql(`
@@ -39,7 +40,9 @@ interface ProfileData {
 }
 
 export default function Profile(): ReactElement {
-  const { loading, error, data } = useQuery(QUERY_PROFILE);
+  const { loading, error, data } = useQuery<{ profile: ProfileData }>(
+    QUERY_PROFILE,
+  );
   if (loading) {
     return (
       <div className={styles.loading}>
@@ -49,6 +52,9 @@ export default function Profile(): ReactElement {
   }
   if (error) {
     return <div>error</div>;
+  }
+  if (data == null) {
+    return <div>no data</div>;
   }
 
   const profile: ProfileData = data.profile;

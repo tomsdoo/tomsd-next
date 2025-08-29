@@ -2,7 +2,7 @@ import React from "react";
 import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Artifacts, { QUERY_ARTIFACTS } from "@/components/articles/artifacts";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 
 const arrayLength = 6;
 const artifacts = [...Array(arrayLength)].map((_, i) => ({
@@ -36,7 +36,7 @@ export const Default: StoryObj<typeof Artifacts> = {
   args: {},
   storyName: "default",
   render: () => (
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <Artifacts />
     </MockedProvider>
   ),

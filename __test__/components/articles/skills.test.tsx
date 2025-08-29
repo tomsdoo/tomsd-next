@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { describe, it, expect, jest } from "@jest/globals";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import Skills, { QUERY_SKILLS } from "@/components/articles/skills";
@@ -13,7 +13,7 @@ jest.mock(
   () =>
     function Skill() {
       return <mocked-skill data-testid="mocked-skill" />;
-    }
+    },
 );
 
 describe("Skills component", () => {
@@ -39,9 +39,9 @@ describe("Skills component", () => {
     ];
 
     render(
-      <MockedProvider mocks={mocks} addTypename={false}>
+      <MockedProvider mocks={mocks}>
         <Skills />
-      </MockedProvider>
+      </MockedProvider>,
     );
     expect(await screen.findAllByTestId("mocked-skill")).toHaveLength(2);
   });

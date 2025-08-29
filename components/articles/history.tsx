@@ -1,7 +1,8 @@
 "use client";
 
 import { ReactElement, DetailedHTMLProps, HTMLAttributes } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 import historyStyles from "@/styles/components/articles/history.module.css";
 import { format, differenceInMonths } from "date-fns";
 
@@ -17,6 +18,15 @@ export const QUERY_HISTORIES = gql(`
     }
   }
   `);
+
+interface History {
+  title: string;
+  start: Date;
+  end: Date;
+  companyDescription: string;
+  description: string;
+  badges: string[];
+}
 
 function getTerm({ start, end }): {
   years: number;
@@ -88,7 +98,9 @@ export function HistoryItem({
 }
 
 export default function History() {
-  const { loading, error, data } = useQuery(QUERY_HISTORIES);
+  const { loading, error, data } = useQuery<{ histories: History[] }>(
+    QUERY_HISTORIES,
+  );
   if (loading) {
     return (
       <div className={historyStyles.loading}>
@@ -97,6 +109,9 @@ export default function History() {
     );
   }
   if (error) {
+    return;
+  }
+  if (data == null) {
     return;
   }
 

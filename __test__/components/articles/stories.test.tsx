@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { describe, it, expect } from "@jest/globals";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import Stories, {
@@ -18,13 +18,13 @@ describe("stories", () => {
       const badges = ["badge 1", "badge 2"];
 
       const { container } = render(
-        <Badges data-testid="test" badges={badges} />
+        <Badges data-testid="test" badges={badges} />,
       );
       expect(await screen.findByTestId("test")).toBeInTheDocument();
       expect(await screen.findByText("#badge 1")).toBeInTheDocument();
       expect(await screen.findByText("#badge 2")).toBeInTheDocument();
       expect(
-        container.querySelector(`[data-testid='test']`).childNodes
+        container.querySelector(`[data-testid='test']`).childNodes,
       ).toHaveLength(2);
     });
   });
@@ -72,9 +72,9 @@ describe("stories", () => {
       ];
 
       render(
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={mocks}>
           <Stories />
-        </MockedProvider>
+        </MockedProvider>,
       );
       expect(await screen.findByText("title 1")).toBeInTheDocument();
     });

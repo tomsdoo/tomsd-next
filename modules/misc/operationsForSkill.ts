@@ -1,4 +1,6 @@
 interface Skill {
+  title: string;
+  description: string;
   web: boolean;
   years: number;
   scoreWeb?: number;

@@ -2,7 +2,7 @@ import React from "react";
 import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Profile, { QUERY_PROFILE } from "@/components/articles/profile";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 
 const mocks = [
   {
@@ -43,7 +43,7 @@ export const Default: StoryObj<typeof Profile> = {
   args: {},
   storyName: "default",
   render: () => (
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <div
         style={{
           width: "min(calc(100vw - 4rem), 80vw)",

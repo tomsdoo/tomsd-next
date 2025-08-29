@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { describe, it, expect } from "@jest/globals";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
@@ -18,13 +18,13 @@ describe("history", () => {
       const badges = ["badge 1", "badge 2"];
 
       const { container } = render(
-        <Badges data-testid="test" badges={badges} />
+        <Badges data-testid="test" badges={badges} />,
       );
       expect(await screen.findByTestId("test")).toBeInTheDocument();
       expect(await screen.findByText("#badge 1")).toBeInTheDocument();
       expect(await screen.findByText("#badge 2")).toBeInTheDocument();
       expect(
-        container.querySelector(`[data-testid='test']`).childNodes
+        container.querySelector(`[data-testid='test']`).childNodes,
       ).toHaveLength(2);
     });
   });
@@ -44,8 +44,8 @@ describe("history", () => {
       expect(await screen.findByText("companyDescription")).toBeInTheDocument();
       expect(
         await screen.findByText((content, element) =>
-          /[0-9]{4}\.[0-9]{2} - [0-9]{4}\.[0-9]{2}/.test(content)
-        )
+          /[0-9]{4}\.[0-9]{2} - [0-9]{4}\.[0-9]{2}/.test(content),
+        ),
       ).toBeInTheDocument();
       expect(await screen.findByText("title")).toBeInTheDocument();
       expect(await screen.findByText("description")).toBeInTheDocument();
@@ -79,9 +79,9 @@ describe("history", () => {
       ];
 
       render(
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={mocks}>
           <History />
-        </MockedProvider>
+        </MockedProvider>,
       );
       expect(await screen.findByText("title")).toBeInTheDocument();
     });
