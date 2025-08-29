@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { describe, it, expect, jest } from "@jest/globals";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 import "@testing-library/jest-dom";
 import React from "react";
 import Artifacts, { QUERY_ARTIFACTS } from "@/components/articles/artifacts";
@@ -44,7 +44,7 @@ describe("Artifacts component", () => {
     ];
 
     render(
-      <MockedProvider mocks={mocks} addTypename={false}>
+      <MockedProvider mocks={mocks}>
         <Artifacts />
       </MockedProvider>,
     );

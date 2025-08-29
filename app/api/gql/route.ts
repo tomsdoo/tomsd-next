@@ -9,7 +9,7 @@ const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 const handler = startServerAndCreateNextHandler(apolloServer, {
   context: async (req: NextRequest) => {
-    const requestedWith = req.headers.get("x-requested-with");
+    const requestedWith = req.headers.get("x-request-client");
     if (requestedWith !== "tomsd-client") {
       console.log("えらー");
       throw new GraphQLError("Invalid request", {

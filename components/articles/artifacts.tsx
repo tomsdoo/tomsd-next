@@ -1,7 +1,8 @@
 "use client";
 
 import { ReactElement } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 import artifactsStyles from "@/styles/components/articles/artifacts.module.css";
 import Artifact from "@/components/articles/artifact";
 
@@ -18,7 +19,15 @@ export const QUERY_ARTIFACTS = gql(`
   `);
 
 export default function Artifacts(): ReactElement {
-  const { loading, error, data } = useQuery(QUERY_ARTIFACTS);
+  const { loading, error, data } = useQuery<{
+    artifacts: {
+      title: string;
+      link: string;
+      description: string;
+      image: string;
+      orderScore: number;
+    }[];
+  }>(QUERY_ARTIFACTS);
   if (loading) {
     return <div>loading</div>;
   }
@@ -26,7 +35,7 @@ export default function Artifacts(): ReactElement {
     return <div>error</div>;
   }
 
-  const artifacts = [...data.artifacts].sort(
+  const artifacts = [...(data?.artifacts ?? [])].sort(
     (a, b) => b.orderScore - a.orderScore,
   );
 

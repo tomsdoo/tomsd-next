@@ -2,7 +2,7 @@ import React from "react";
 import { StoryObj, Meta } from "@storybook/nextjs";
 
 import History, { QUERY_HISTORIES } from "@/components/articles/history";
-import { MockedProvider } from "@apollo/client/testing";
+import { MockedProvider } from "@apollo/client/testing/react";
 
 const histories = [...Array(3)].map((_, i) => ({
   title: `title ${i}`,
@@ -36,7 +36,7 @@ export const Default: StoryObj<typeof History> = {
   args: {},
   storyName: "default",
   render: () => (
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <div
         style={{
           width: "min(calc(100vw - 4rem), 80vw)",

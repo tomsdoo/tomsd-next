@@ -1,7 +1,8 @@
 "use client";
 
 import { ReactElement } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
 import styles from "@/styles/components/articles/stories.module.css";
 
 export const QUERY_STORIES = gql(`
@@ -15,6 +16,14 @@ export const QUERY_STORIES = gql(`
     }
   }
   `);
+
+interface Story {
+  title: string;
+  description: string;
+  issue: string;
+  solution: string;
+  badges: string[];
+}
 
 export function Badges({ badges, ...props }): ReactElement {
   return (
@@ -39,11 +48,16 @@ export function Story({ story }): ReactElement {
 }
 
 export default function Stories() {
-  const { loading, error, data } = useQuery(QUERY_STORIES);
+  const { loading, error, data } = useQuery<{ stories: Story[] }>(
+    QUERY_STORIES,
+  );
   if (loading) {
     return;
   }
   if (error) {
+    return;
+  }
+  if (data == null) {
     return;
   }
   const stories = data.stories;
