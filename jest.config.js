@@ -1,6 +1,6 @@
-const path = require("path");
+import path from "path";
 
-module.exports = {
+export default {
   moduleNameMapper: {
     "^@/app/(.*)$": "<rootDir>/app/$1",
     "^@/apollo/(.*)$": "<rootDir>/apollo/$1",
@@ -13,6 +13,6 @@ module.exports = {
     "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
   },
   transform: {
-    "^.+\\.tsx?$": path.join(__dirname, "jest.babel.config.js")
+    "^.+\\.tsx?$": path.join(import.meta.dirname, "jest.babel.config.js")
   }
 };

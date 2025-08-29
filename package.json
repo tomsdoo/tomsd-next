@@ -2,6 +2,7 @@
   "name": "tomsd-next",
   "version": "1.7.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "next build",

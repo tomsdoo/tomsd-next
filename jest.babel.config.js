@@ -1,4 +1,4 @@
-const babelJest = require("babel-jest");
+import babelJest from "babel-jest";
 
 const babelOptions = {
   presets: [
@@ -7,4 +7,4 @@ const babelOptions = {
     '@babel/preset-typescript',
   ]
 };
-module.exports = babelJest.createTransformer(babelOptions);
+export default babelJest.createTransformer(babelOptions);
