@@ -1,9 +1,9 @@
-const packageJson = require(require("path").join(__dirname, "./package.json"));
+import packageJson from "./package.json" with { type: "json" };
 
-module.exports = async (phase, { defaultConfig }) => {
+export default async (phase, { defaultConfig }) => {
   const nextConfig = {
     publicRuntimeConfig: {
-      version: packageJson.version
+      version: packageJson.version,
     }
   };
   return nextConfig;
