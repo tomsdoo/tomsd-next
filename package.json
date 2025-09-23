@@ -41,7 +41,7 @@
     "@apollo/server": "5.0.0",
     "@as-integrations/next": "4.0.0",
     "@reduxjs/toolkit": "2.9.0",
-    "contentful": "11.7.18",
+    "contentful": "11.7.19",
     "date-fns": "4.1.0",
     "destyle.css": "4.0.1",
     "graphql": "16.11.0",
