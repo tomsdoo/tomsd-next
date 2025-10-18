@@ -1,6 +1,6 @@
 {
   "name": "tomsd-next",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "",
   "type": "module",
   "main": "index.js",
