@@ -17,7 +17,7 @@
     "format:routes": "prettier --write routes/**/*.ts",
     "format:styles": "prettier --write styles/**/*.css",
     "format:test": "prettier --write __test__/**/*.ts",
-    "lint": "next lint",
+    "lint": "biome check",
     "prepare": "husky",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
@@ -39,13 +39,13 @@
   "dependencies": {
     "@apollo/client": "4.0.7",
     "@apollo/server": "5.0.0",
-    "@as-integrations/next": "4.0.0",
+    "@as-integrations/next": "4.1.0",
     "@reduxjs/toolkit": "2.9.1",
     "contentful": "11.8.7",
     "date-fns": "4.1.0",
     "destyle.css": "4.0.1",
     "graphql": "16.11.0",
-    "next": "15.5.6",
+    "next": "16.0.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-redux": "9.2.0",
@@ -57,6 +57,7 @@
     "@babel/preset-env": "7.28.5",
     "@babel/preset-react": "7.28.5",
     "@babel/preset-typescript": "7.28.5",
+    "@biomejs/biome": "2.3.2",
     "@chromatic-com/storybook": "^4.1.1",
     "@storybook/addon-docs": "^9.1.15",
     "@storybook/addon-links": "9.1.15",
@@ -70,7 +71,7 @@
     "babel-loader": "10.0.0",
     "chromatic": "13.3.2",
     "eslint": "9.38.0",
-    "eslint-config-next": "15.5.6",
+    "eslint-config-next": "16.0.1",
     "eslint-plugin-storybook": "^9.1.15",
     "husky": "9.1.7",
     "jest": "30.2.0",
@@ -91,6 +92,7 @@
       "react-dom": "16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
       "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     },
-    "storybook": "$storybook"
+    "storybook": "$storybook",
+    "@types/react": "19.2.2"
   }
 }

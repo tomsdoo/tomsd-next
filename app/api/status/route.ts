@@ -1,11 +1,9 @@
-import getConfig from "next/config";
+import packageJson from "@@/package.json" with { type: "json" };
 import { NextResponse } from "next/server";
 
-const { publicRuntimeConfig } = getConfig();
-
 export async function GET() {
-  const statusObj = Object.fromEntries(
-    ["version"].map((field) => [field, publicRuntimeConfig[field]]),
-  );
-  return NextResponse.json(statusObj);
+	const statusObj = {
+		version: packageJson.version,
+	};
+	return NextResponse.json(statusObj);
 }

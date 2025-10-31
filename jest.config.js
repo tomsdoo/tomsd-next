@@ -2,6 +2,7 @@ import path from "path";
 
 export default {
   moduleNameMapper: {
+    "^@@/(.*)$": "<rootDir>/$1",
     "^@/app/(.*)$": "<rootDir>/app/$1",
     "^@/apollo/(.*)$": "<rootDir>/apollo/$1",
     "^@/components/(.*)$": "<rootDir>/components/$1",
