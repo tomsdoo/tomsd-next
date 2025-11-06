@@ -60,7 +60,7 @@
     "@chromatic-com/storybook": "^4.1.2",
     "@storybook/addon-docs": "10.0.5",
     "@storybook/addon-links": "10.0.5",
-    "@storybook/nextjs": "9.1.15",
+    "@storybook/nextjs": "10.0.5",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.0",
     "@types/jsdom": "27.0.0",
