@@ -38,7 +38,7 @@
   "homepage": "https://github.com/tomsdoo/tomsd-next#readme",
   "dependencies": {
     "@apollo/client": "4.0.9",
-    "@apollo/server": "5.0.0",
+    "@apollo/server": "5.1.0",
     "@as-integrations/next": "4.1.0",
     "@reduxjs/toolkit": "2.10.1",
     "contentful": "11.8.13",
