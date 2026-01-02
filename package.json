@@ -46,7 +46,7 @@
     "destyle.css": "4.0.1",
     "graphql": "16.12.0",
     "next": "16.1.0",
-    "react": "19.2.0",
+    "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-redux": "9.2.0",
     "react-transition-group": "4.4.5",
