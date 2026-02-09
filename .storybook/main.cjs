@@ -1,4 +1,4 @@
-const path = require("path");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     "@storybook/addon-docs",
   ],
 
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     config.resolve.extensions = [
       ...(config.resolve.extensions || []),
       ...[".ts", ".tsx", ".js", ".css", ".scss"],

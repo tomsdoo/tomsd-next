@@ -28,11 +28,13 @@ export default function Layout({
   const pathname = usePathname();
   useEffect(() => {
     console.log({ visitedPages });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(visit(pathname));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (

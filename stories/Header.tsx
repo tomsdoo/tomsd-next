@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "./Button";
 import "./header.css";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type User = {
   name: string;
 };
@@ -15,7 +14,6 @@ interface HeaderProps {
   onCreateAccount: () => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const Header = ({
   user,
   onLogin,
@@ -49,27 +47,24 @@ export const Header = ({
         <h1>Acme</h1>
       </div>
       <div>
-        {
-          // eslint-disable-next-line
-          user ? (
-            <>
-              <span className="welcome">
-                Welcome, <b>{user.name}</b>!
-              </span>
-              <Button size="small" onClick={onLogout} label="Log out" />
-            </>
-          ) : (
-            <>
-              <Button size="small" onClick={onLogin} label="Log in" />
-              <Button
-                primary
-                size="small"
-                onClick={onCreateAccount}
-                label="Sign up"
-              />
-            </>
-          )
-        }
+        {user ? (
+          <>
+            <span className="welcome">
+              Welcome, <b>{user.name}</b>!
+            </span>
+            <Button size="small" onClick={onLogout} label="Log out" />
+          </>
+        ) : (
+          <>
+            <Button size="small" onClick={onLogin} label="Log in" />
+            <Button
+              primary
+              size="small"
+              onClick={onCreateAccount}
+              label="Sign up"
+            />
+          </>
+        )}
       </div>
     </div>
   </header>

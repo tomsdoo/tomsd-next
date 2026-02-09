@@ -27,7 +27,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
 export const Button = ({
   primary = false,
   size = "medium",
@@ -42,7 +42,7 @@ export const Button = ({
     <button
       type="button"
       className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
+        " ",
       )}
       style={{ backgroundColor }}
       {...props}

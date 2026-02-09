@@ -16,14 +16,16 @@ export class ContentfulClient {
   }
 
   public async getEntries(
-    query?: any
+    query?: Record<string, unknown>,
   ): Promise<EntryCollection<EntrySkeletonType>> {
     return await this.client.getEntries<EntrySkeletonType, string>(query);
   }
 
-  public async getEntryItems<T = unknown>(query?: any): Promise<T[]> {
+  public async getEntryItems<T = unknown>(
+    query?: Record<string, unknown>,
+  ): Promise<T[]> {
     return await this.getEntries(query).then(({ items }) =>
-      items.map((item) => item.fields as T)
+      items.map((item) => item.fields as T),
     );
   }
 }
