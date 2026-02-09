@@ -1,4 +1,4 @@
-import { describe, it, expect, jest, beforeAll } from "@jest/globals";
+import { describe, it, expect, beforeAll } from "@jest/globals";
 import { routes } from "@/routes/index";
 
 function getPathname(url) {

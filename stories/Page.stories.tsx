@@ -3,7 +3,6 @@ import { StoryObj, Meta } from "@storybook/nextjs";
 import { within, userEvent } from "storybook/test";
 import { Page } from "./Page";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Example/Page",
   component: Page,

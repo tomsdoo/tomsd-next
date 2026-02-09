@@ -3,7 +3,6 @@ import { StoryObj, Meta } from "@storybook/nextjs";
 
 import { Header } from "./Header";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "Example/Header",
   component: Header,

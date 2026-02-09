@@ -3,7 +3,6 @@ import { StoryObj, Meta } from "@storybook/nextjs";
 
 import Skill from "@/components/articles/skill";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "components/articles/Skill",
   component: Skill,

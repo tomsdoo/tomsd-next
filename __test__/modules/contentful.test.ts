@@ -42,7 +42,7 @@ describe("contentful", () => {
     it("get()", async () => {
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        // @ts-expect-error
+        // @ts-expect-error type contradiction
         .mockReturnValue(
           Promise.resolve({
             items: [
@@ -84,7 +84,7 @@ describe("contentful", () => {
       ];
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        // @ts-expect-error
+        // @ts-expect-error type contradiction
         .mockReturnValue(
           Promise.resolve({
             items: mockedSkills,
@@ -126,7 +126,7 @@ describe("contentful", () => {
       ];
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        // @ts-expect-error
+        // @ts-expect-error type contradiction
         .mockReturnValue(
           Promise.resolve({
             items: mockedHistories,
@@ -156,7 +156,7 @@ describe("contentful", () => {
 
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        // @ts-expect-error
+        // @ts-expect-error type contradiction
         .mockReturnValue(
           Promise.resolve({
             items: mockedItems,
@@ -186,7 +186,7 @@ describe("contentful", () => {
 
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        // @ts-expect-error
+        // @ts-expect-error type contradiction
         .mockReturnValue(Promise.resolve({ items: mockedItems }));
       expect(await new Stories().get()).toEqual(
         mockedItems.map(({ fields }) => fields),

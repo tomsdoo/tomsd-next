@@ -43,7 +43,7 @@ describe("history", () => {
       render(<HistoryItem history={history} />);
       expect(await screen.findByText("companyDescription")).toBeInTheDocument();
       expect(
-        await screen.findByText((content, element) =>
+        await screen.findByText((content) =>
           /[0-9]{4}\.[0-9]{2} - [0-9]{4}\.[0-9]{2}/.test(content),
         ),
       ).toBeInTheDocument();
