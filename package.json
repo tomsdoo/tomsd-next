@@ -68,7 +68,7 @@
     "@types/react": "19.2.2",
     "babel-jest": "30.3.0",
     "babel-loader": "10.1.1",
-    "chromatic": "15.2.0",
+    "chromatic": "16.9.1",
     "eslint": "9.39.2",
     "eslint-config-next": "16.2.4",
     "eslint-plugin-storybook": "10.3.6",
