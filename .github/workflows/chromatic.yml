@@ -17,6 +17,9 @@ jobs:
     # Job steps
     steps:
       - uses: actions/checkout@v4
+        with:
+          #👇 Fetches all history for all tags and branches
+          fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
