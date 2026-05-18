@@ -80,7 +80,7 @@
     "prettier": "3.8.3",
     "storybook": "10.3.6",
     "tsconfig-paths-webpack-plugin": "4.2.0",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "overrides": {
     "@types/react-dom": {
