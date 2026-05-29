@@ -2,7 +2,8 @@ import {
   createClient,
   ContentfulClientApi,
   EntryCollection,
-  EntrySkeletonType,
+  type EntrySkeletonType,
+  type EntriesQueries,
 } from "contentful";
 
 export class ContentfulClient {
@@ -16,14 +17,16 @@ export class ContentfulClient {
   }
 
   public async getEntries(
-    query?: any
+    query?: EntriesQueries<EntrySkeletonType, undefined>,
   ): Promise<EntryCollection<EntrySkeletonType>> {
     return await this.client.getEntries<EntrySkeletonType, string>(query);
   }
 
-  public async getEntryItems<T = unknown>(query?: any): Promise<T[]> {
+  public async getEntryItems<T = unknown>(
+    query?: EntriesQueries<EntrySkeletonType, undefined>,
+  ): Promise<T[]> {
     return await this.getEntries(query).then(({ items }) =>
-      items.map((item) => item.fields as T)
+      items.map((item) => item.fields as T),
     );
   }
 }

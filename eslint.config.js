@@ -1,15 +1,22 @@
-import { FlatCompat } from "@eslint/eslintrc";
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
+import nextConfig from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
+import storybookPlugin from "eslint-plugin-storybook";
 
 const eslintConfig = [
-  ...compat.config({
-    extends: ["next/core-web-vitals", "next/typescript"],
-    parserOptions: {
-      project: "./tsconfig.json",
+  {
+    ignores: ["storybook-static/**"],
+  },
+  ...nextConfig,
+  ...nextTypescript,
+  ...storybookPlugin.configs["flat/recommended"],
+  {
+    settings: {
+      react: {
+        version: "19",
+      },
     },
+  },
+  {
     rules: {
       "@next/next/no-img-element": "off",
       "@typescript-eslint/strict-boolean-expressions": "off",
@@ -21,10 +28,13 @@ const eslintConfig = [
       "@typescript-eslint/indent": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off"
     },
-  }),
-  ...compat.config({
-    extends: ["plugin:storybook/recommended"],
-  }),
+  },
+  {
+    files: ["**/*.cjs"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

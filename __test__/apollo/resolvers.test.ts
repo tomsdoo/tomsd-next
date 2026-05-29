@@ -25,7 +25,6 @@ describe("apollo", () => {
       const spy = jest
         .spyOn(Artifacts.prototype, "get")
         .mockReturnValue(Promise.resolve(mockedValue));
-      // @ts-expect-error
       expect(await resolvers.Query.artifacts()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
@@ -44,7 +43,6 @@ describe("apollo", () => {
       const spy = jest
         .spyOn(Profile.prototype, "get")
         .mockReturnValue(Promise.resolve(mockedValue));
-      // @ts-expect-error
       expect(await resolvers.Query.profile()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
@@ -60,7 +58,6 @@ describe("apollo", () => {
       const spy = jest
         .spyOn(Skills.prototype, "get")
         .mockReturnValue(Promise.resolve(mockedValue));
-      // @ts-expect-error
       expect(await resolvers.Query.skills()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
@@ -77,7 +74,6 @@ describe("apollo", () => {
       const spy = jest
         .spyOn(Stories.prototype, "get")
         .mockReturnValue(Promise.resolve(mockedValue));
-      // @ts-expect-error
       expect(await resolvers.Query.stories()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });
@@ -95,7 +91,6 @@ describe("apollo", () => {
       const spy = jest
         .spyOn(Histories.prototype, "get")
         .mockReturnValue(Promise.resolve(mockedValue));
-      // @ts-expect-error
       expect(await resolvers.Query.histories()).toEqual(mockedValue);
       expect(spy).toHaveBeenCalled();
     });

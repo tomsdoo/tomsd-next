@@ -3,7 +3,6 @@ import React from "react";
 import { Header } from "./Header";
 import "./page.css";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type User = {
   name: string;
 };

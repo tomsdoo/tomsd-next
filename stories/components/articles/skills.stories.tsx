@@ -25,7 +25,6 @@ const mocks = [
   },
 ];
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 export default {
   title: "components/articles/Skills",
   component: Skills,
