@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const path = require("path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
@@ -12,6 +13,7 @@ module.exports = {
     "@storybook/addon-docs",
   ],
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpackFinal: async (config, { configType }) => {
     config.resolve.extensions = [
       ...(config.resolve.extensions || []),

@@ -1,6 +1,6 @@
 import path from "path";
 
-export default {
+const config = {
   moduleNameMapper: {
     "^@@/(.*)$": "<rootDir>/$1",
     "^@/app/(.*)$": "<rootDir>/app/$1",
@@ -17,3 +17,5 @@ export default {
     "^.+\\.tsx?$": path.join(import.meta.dirname, "jest.babel.config.js")
   }
 };
+
+export default config;

@@ -9,6 +9,7 @@ import type { AppStore } from "@/lib/store";
 export function StoreProvider({ children }: { children: ReactNode }) {
   const storeRef = useRef<AppStore | null>(null);
 
+  // eslint-disable-next-line react-hooks/refs
   if (!storeRef.current) {
     storeRef.current = makeStore();
   }
@@ -21,5 +22,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     return unsubscribe;
   }, []);
 
+  // eslint-disable-next-line react-hooks/refs
   return <Provider store={storeRef.current}>{children}</Provider>;
 }
