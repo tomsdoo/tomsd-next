@@ -5,28 +5,9 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      react-stack:
-        applies-to: version-updates
-        patterns:
-          - "react"
-          - "react-dom"
-          - "@types/react"
-          - "@types/react-dom"
-          - "next"
-          - "@testing-library/react"
-          - "react-redux"
-          - "react-transition-group"
-        update-types:
-          - major
-          - minor
-          - patch
       dev-dependencies:
         applies-to: version-updates
         dependency-type: development
-        exclude-patterns:
-          - "@types/react"
-          - "@types/react-dom"
-          - "@testing-library/react"
         update-types:
           - minor
           - patch
