@@ -8,10 +8,11 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch:
 
-# List of jobs
 jobs:
   test:
+    if: github.event_name != 'pull_request' || github.actor != 'dependabot[bot]'
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
