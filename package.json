@@ -45,7 +45,7 @@
     "date-fns": "4.4.0",
     "destyle.css": "4.0.1",
     "graphql": "16.14.2",
-    "next": "16.2.7",
+    "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-redux": "9.3.0",
