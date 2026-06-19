@@ -54,9 +54,9 @@
   },
   "devDependencies": {
     "@babel/core": "8.0.1",
-    "@babel/preset-env": "7.29.7",
-    "@babel/preset-react": "7.29.7",
-    "@babel/preset-typescript": "7.29.7",
+    "@babel/preset-env": "8.0.2",
+    "@babel/preset-react": "8.0.1",
+    "@babel/preset-typescript": "8.0.1",
     "@chromatic-com/storybook": "^5.2.1",
     "@storybook/addon-docs": "10.4.6",
     "@storybook/addon-links": "10.4.6",
