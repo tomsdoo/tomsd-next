@@ -7,10 +7,12 @@ function getPathname(url) {
 
 describe("routes", () => {
   describe("/profile", () => {
-    let route: {
-      href: string;
-      pathRegexp: RegExp;
-    };
+    let route:
+      | {
+          href: string;
+          pathRegexp: RegExp;
+        }
+      | undefined;
     beforeAll(() => {
       route = routes.find(({ href }) => href === "/profile");
     });
@@ -32,10 +34,12 @@ describe("routes", () => {
   });
 
   describe("/skills", () => {
-    let route: {
-      href: string;
-      pathRegexp: RegExp;
-    };
+    let route:
+      | {
+          href: string;
+          pathRegexp: RegExp;
+        }
+      | undefined;
     beforeAll(() => {
       route = routes.find(({ href }) => href === "/skills");
     });
@@ -58,10 +62,12 @@ describe("routes", () => {
   });
 
   describe("/history", () => {
-    let route: {
-      href: string;
-      pathRegexp: RegExp;
-    };
+    let route:
+      | {
+          href: string;
+          pathRegexp: RegExp;
+        }
+      | undefined;
     beforeAll(() => {
       route = routes.find(({ href }) => href === "/history");
     });
@@ -84,10 +90,12 @@ describe("routes", () => {
   });
 
   describe("/links", () => {
-    let route: {
-      href: string;
-      pathRegexp: RegExp;
-    };
+    let route:
+      | {
+          href: string;
+          pathRegexp: RegExp;
+        }
+      | undefined;
     beforeAll(() => {
       route = routes.find(({ href }) => href === "/links");
     });

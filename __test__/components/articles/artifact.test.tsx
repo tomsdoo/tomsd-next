@@ -21,12 +21,12 @@ describe("Artifact component", () => {
     expect(await screen.findByAltText("image: title")).toBeInTheDocument();
     const anchor = container.querySelector(`a[href='link']`);
     expect(anchor).not.toBeNull();
-    expect(anchor.childNodes).toHaveLength(3);
-    const titleDiv = anchor.childNodes[0];
+    expect(anchor?.childNodes).toHaveLength(3);
+    const titleDiv = anchor?.childNodes[0];
     expect(titleDiv).toHaveProperty("textContent", "title");
-    const descriptionDiv = anchor.childNodes[1];
+    const descriptionDiv = anchor?.childNodes[1];
     expect(descriptionDiv).toHaveProperty("textContent", "description");
-    const img = anchor.childNodes[2] as HTMLImageElement;
+    const img = anchor?.childNodes[2] as HTMLImageElement;
     expect(img.getAttribute("src")).toBe("image");
     expect(img.getAttribute("alt")).toBe("image: title");
   });

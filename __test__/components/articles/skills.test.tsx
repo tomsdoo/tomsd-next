@@ -12,7 +12,7 @@ jest.mock(
   "@/components/articles/skill",
   () =>
     function Skill() {
-      return <mocked-skill data-testid="mocked-skill" />;
+      return <div data-testid="mocked-skill" />;
     },
 );
 

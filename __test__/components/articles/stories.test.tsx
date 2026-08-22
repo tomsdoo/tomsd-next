@@ -24,7 +24,7 @@ describe("stories", () => {
       expect(await screen.findByText("#badge 1")).toBeInTheDocument();
       expect(await screen.findByText("#badge 2")).toBeInTheDocument();
       expect(
-        container.querySelector(`[data-testid='test']`).childNodes,
+        container.querySelector(`[data-testid='test']`)?.childNodes,
       ).toHaveLength(2);
     });
   });
