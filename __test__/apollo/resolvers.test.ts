@@ -10,7 +10,9 @@ import {
 
 describe("apollo", () => {
   beforeAll(() => {
+    // @ts-expect-error process.env.CONTENTFUL_SPACE_ID and process.env.CONTENTFUL_ACCESS_TOKEN are set for testing
     process.env.CONTENTFUL_SPACE_ID = "space";
+    // @ts-expect-error process.env.CONTENTFUL_SPACE_ID and process.env.CONTENTFUL_ACCESS_TOKEN are set for testing
     process.env.CONTENTFUL_ACCESS_TOKEN = "token";
   });
   describe("resolvers", () => {

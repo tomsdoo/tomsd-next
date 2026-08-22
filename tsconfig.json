@@ -18,31 +18,30 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
       "@/apollo/*": [
-        "apollo/*"
+        "./apollo/*"
       ],
       "@/app/*": [
-        "app/*"
+        "./app/*"
       ],
       "@/components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@/layouts/*": [
-        "layouts/*"
+        "./layouts/*"
       ],
       "@/lib/*": [
-        "lib/*"
+        "./lib/*"
       ],
       "@/modules/*": [
-        "modules/*"
+        "./modules/*"
       ],
       "@/routes/*": [
-        "routes/*"
+        "./routes/*"
       ],
       "@/styles/*": [
-        "styles/*"
+        "./styles/*"
       ],
       "@@/*": [
         "./*"

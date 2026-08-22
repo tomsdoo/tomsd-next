@@ -11,7 +11,7 @@ jest.mock(
   "@/components/home/images/rotating-image",
   () =>
     function RotatingImage() {
-      return <mocked-rotating-image data-testid="mocked-rotating-image" />;
+      return <div data-testid="mocked-rotating-image" />;
     },
 );
 

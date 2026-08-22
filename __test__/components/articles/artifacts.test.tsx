@@ -12,9 +12,7 @@ jest.mock(
   "@/components/articles/artifact",
   () =>
     function Artifact() {
-      return (
-        <mocked-artifact data-testid="mocked-artifact">test</mocked-artifact>
-      );
+      return <div data-testid="mocked-artifact">test</div>;
     },
 );
 

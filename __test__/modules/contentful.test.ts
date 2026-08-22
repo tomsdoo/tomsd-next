@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, jest } from "@jest/globals";
+import type { EntryCollection, EntrySkeletonType } from "contentful";
 import {
   Artifacts,
   ContentfulClient,
@@ -8,9 +9,22 @@ import {
   Stories,
 } from "@/modules/contentful";
 
+// fixtures only include the `fields` shape consumers actually read, so cast through the real return type
+const mockEntries = (items: unknown[]): EntryCollection<EntrySkeletonType> =>
+  ({
+    stringifySafe: () => "",
+    toPlainObject: () => ({}),
+    total: items.length,
+    skip: 0,
+    limit: items.length,
+    items,
+  }) as unknown as EntryCollection<EntrySkeletonType>;
+
 describe("contentful", () => {
   beforeAll(() => {
+    // @ts-expect-error process.env.CONTENTFUL_SPACE_ID and process.env.CONTENTFUL_ACCESS_TOKEN are set for testing
     process.env.CONTENTFUL_SPACE_ID = "space";
+    // @ts-expect-error process.env.CONTENTFUL_SPACE_ID and process.env.CONTENTFUL_ACCESS_TOKEN are set for testing
     process.env.CONTENTFUL_ACCESS_TOKEN = "token";
   });
 
@@ -18,23 +32,16 @@ describe("contentful", () => {
     it("getEntries()", async () => {
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        .mockReturnValue(
-          Promise.resolve({
-            stringifySafe: () => "",
-            toPlainObject: () => ({}),
-            total: 0,
-            skip: 0,
-            limit: 0,
-            items: [],
-          }),
-        );
+        .mockReturnValue(Promise.resolve(mockEntries([])));
       const client = new ContentfulClient();
       await client.getEntries({
         content_type: "test",
       });
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "test",
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "test",
+        }),
+      );
     });
   });
 
@@ -43,21 +50,23 @@ describe("contentful", () => {
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
         .mockReturnValue(
-          Promise.resolve({
-            items: [
+          Promise.resolve(
+            mockEntries([
               {
                 fields: {
                   json: { name: "test" },
                 },
               },
-            ],
-          }),
+            ]),
+          ),
         );
       expect(await new Profile().get()).toEqual({ name: "test" });
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "anydoc",
-        "fields.name": "tomsd-page-profile",
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "anydoc",
+          "fields.name": "tomsd-page-profile",
+        }),
+      );
     });
   });
 
@@ -83,18 +92,16 @@ describe("contentful", () => {
       ];
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        .mockReturnValue(
-          Promise.resolve({
-            items: mockedSkills,
-          }),
-        );
+        .mockReturnValue(Promise.resolve(mockEntries(mockedSkills)));
       expect(await new Skills().get()).toEqual(
         mockedSkills.map(({ fields }) => fields),
       );
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "skills",
-        limit: 1000,
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "skills",
+          limit: 1000,
+        }),
+      );
     });
   });
 
@@ -124,18 +131,16 @@ describe("contentful", () => {
       ];
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        .mockReturnValue(
-          Promise.resolve({
-            items: mockedHistories,
-          }),
-        );
+        .mockReturnValue(Promise.resolve(mockEntries(mockedHistories)));
       expect(await new Histories().get()).toEqual(
         mockedHistories.map(({ fields }) => fields),
       );
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "history",
-        limit: 1000,
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "history",
+          limit: 1000,
+        }),
+      );
     });
   });
 
@@ -153,18 +158,16 @@ describe("contentful", () => {
 
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        .mockReturnValue(
-          Promise.resolve({
-            items: mockedItems,
-          }),
-        );
+        .mockReturnValue(Promise.resolve(mockEntries(mockedItems)));
       expect(await new Artifacts().get()).toEqual(
         mockedItems.map(({ fields }) => fields),
       );
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "artifact",
-        limit: 1000,
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "artifact",
+          limit: 1000,
+        }),
+      );
     });
   });
 
@@ -182,14 +185,16 @@ describe("contentful", () => {
 
       const spy = jest
         .spyOn(ContentfulClient.prototype, "getEntries")
-        .mockReturnValue(Promise.resolve({ items: mockedItems }));
+        .mockReturnValue(Promise.resolve(mockEntries(mockedItems)));
       expect(await new Stories().get()).toEqual(
         mockedItems.map(({ fields }) => fields),
       );
-      expect(spy).toHaveBeenCalledWith({
-        content_type: "story",
-        limit: 1000,
-      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          content_type: "story",
+          limit: 1000,
+        }),
+      );
     });
   });
 });
